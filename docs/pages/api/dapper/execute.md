@@ -76,40 +76,39 @@ using (var connection = My.ConnectionFactory())
 Execute the INSERT Statement a single time.
 
 {% highlight csharp %}
-string sql = "INSERT INTO Invoice (Code) Values (@Code);";
+string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
-
-    var affectedRows = connection.Execute(sql, new {Kind = InvoiceKind.WebInvoice, Code = "Single_Insert_1"});
-
-    My.Result.Show(affectedRows);
+	connection.Open();
+	var affectedRows = connection.Execute(sql, new {CustomerName = "Mark"});
 }
 {% endhighlight %}
+
+Click [here](https://dotnetfiddle.net/P2uw27) to run this example.
 
 ### Many
 Execute the INSERT Statement multiple times. Once for every object in the array list.
 
 {% highlight csharp %}
-string sql = "INSERT INTO Invoice (Code) Values (@Code);";
+string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
-
-    var affectedRows = connection.Execute(sql,
-        new[]
-        {
-            new {Kind = InvoiceKind.WebInvoice, Code = "Many_Insert_1"},
-            new {Kind = InvoiceKind.WebInvoice, Code = "Many_Insert_2"},
-            new {Kind = InvoiceKind.StoreInvoice, Code = "Many_Insert_3"}
-        }
-    );
-
-    My.Result.Show(affectedRows);
+	connection.Open();
+	
+	var affectedRows = connection.Execute(sql,
+ 		new[]
+ 		{
+     		new {CustomerName = "John"},
+     		new {CustomerName = "Andy"},
+     		new {CustomerName = "Allan"}
+ 		}
+	);	
 }
 {% endhighlight %}
+
+Click [here](https://dotnetfiddle.net/vHOVx6) to run this example.
 
 ## Example - Execute UPDATE
 
@@ -117,39 +116,44 @@ using (var connection = My.ConnectionFactory())
 Execute the UPDATE Statement a single time.
 
 {% highlight csharp %}
-string sql = "UPDATE Invoice SET Code = @Code WHERE InvoiceID = @InvoiceID";
+string sql = "Update Categories Set Description = @Description where CategoryID = @CategoryID;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
+	connection.Open();
+	
+	var affectedRows = connection.Execute(sql,new {CategoryID = 1, Description = "Soft drinks, coffees, teas, beers, mixed drinks, and ales"});
 
-    var affectedRows = connection.Execute(sql, new {InvoiceID = 1, Code = "Single_Update_1"});
-
-    My.Result.Show(affectedRows);
+	Console.WriteLine(affectedRows);
 }
 {% endhighlight %}
+
+Click [here](https://dotnetfiddle.net/CWdH6z) to run this example.
 
 ### Many
 Execute the UPDATE Statement multiple times. Once for every object in the array list.
 
 {% highlight csharp %}
-string sql = "UPDATE Invoice SET Code = @Code WHERE InvoiceID = @InvoiceID";
+string sql = "Update Categories Set Description = @Description where CategoryID = @CategoryID;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
+	connection.Open();
+	
+	var affectedRows = connection.Execute(sql,
+ 		new[]
+ 		{
+     		new {CategoryID = 1, Description = "Soft drinks, coffees, teas, beers, mixed drinks, and ales"},
+     		new {CategoryID = 4, Description = "Cheeses and butters etc."}
+ 		}
+	);
 
-    var affectedRows = connection.Execute(sql,
-        new[]
-        {
-            new {InvoiceID = 1, Code = "Many_Update_1"},
-            new {InvoiceID = 2, Code = "Many_Update_2"},
-            new {InvoiceID = 3, Code = "Many_Update_3"}
-        });
-
-    My.Result.Show(affectedRows);
+	Console.WriteLine(affectedRows);
+	
 }
 {% endhighlight %}
+
+Click [here](https://dotnetfiddle.net/qCdKI3) to run this example.
 
 ## Example - Execute DELETE
 
@@ -157,34 +161,41 @@ using (var connection = My.ConnectionFactory())
 Execute the DELETE Statement a single time.
 
 {% highlight csharp %}
-string sql = "DELETE FROM Invoice WHERE InvoiceID = @InvoiceID";
+string sql = "DELETE FROM Customers WHERE CustomerID = @CustomerID";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
+	connection.Open();
+	
+	var affectedRows = connection.Execute(sql, new {CustomerID = 1});
 
-    var affectedRows = connection.Execute(sql, new {InvoiceID = 1});
-
-    My.Result.Show(affectedRows);
+	Console.WriteLine(affectedRows);
 }
 {% endhighlight %}
+
+Click [here](https://dotnetfiddle.net/4bFT32) to run this example.
 
 ### Many
 Execute the DELETE Statement multiple times. Once for every object in the array list.
 
 {% highlight csharp %}
-string sql = "DELETE FROM Invoice WHERE InvoiceID = @InvoiceID";
+string sql = "DELETE FROM OrderDetails WHERE OrderDetailID = @OrderDetailID";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
+	connection.Open();
+	
+	var affectedRows = connection.Execute(sql, 
+		new[]
+ 		{
+     		new {OrderDetailID = 1},
+     		new {OrderDetailID = 2},
+     		new {OrderDetailID = 3}
+ 		}
+	);
 
-    var affectedRows = connection.Execute(sql,
-        new[]
-        {
-            new {InvoiceID = 1},
-            new {InvoiceID = 2},
-            new {InvoiceID = 3}
-        });
+	Console.WriteLine(affectedRows);
 }
 {% endhighlight %}
+
+Click [here](https://dotnetfiddle.net/nxP1vL) to run this example.
