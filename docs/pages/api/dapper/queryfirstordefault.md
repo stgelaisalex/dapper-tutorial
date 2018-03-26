@@ -39,26 +39,35 @@ Be careful to use the right method. First & Single methods are very different.
 Execute a query and map the first result to a dynamic list, or a default value if the sequence contains no elements.
 
 {% highlight csharp %}
-string sql = "SELECT * FROM Invoice WHERE InvoiceID = @InvoiceID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
+	connection.Open();
+	
+	var orderDetail = connection.QueryFirstOrDefault(sql, new {OrderDetailID = 1});
 
-    var invoice = connection.QueryFirstOrDefault(sql, new {InvoiceID = 1});
+	Console.WriteLine(orderDetail.Quantity);
 }
 {% endhighlight %}
+
+Click [here](https://dotnetfiddle.net/58YMxR) to run this example.
 
 ## Example - Query Strongly Typed
 Execute a query and map the first result to a strongly typed list, or a default value if the sequence contains no elements.
 
 {% highlight csharp %}
-string sql = "SELECT * FROM Invoice WHERE InvoiceID = @InvoiceID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
+	connection.Open();
+	
+	var orderDetail = connection.QueryFirstOrDefault<OrderDetail>(sql, new {OrderDetailID = 1});
 
-    var invoice = connection.QueryFirstOrDefault<Invoice>(sql, new {InvoiceID = 1});
+	Console.WriteLine(orderDetail.Quantity);
 }
 {% endhighlight %}
+
+Click [here](https://dotnetfiddle.net/2WQ7sc) to run this example.
+

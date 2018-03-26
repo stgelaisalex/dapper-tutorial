@@ -39,26 +39,34 @@ Be careful to use the right method. First & Single methods are very different.
 Execute a query and map the first result to a dynamic list.
 
 {% highlight csharp %}
-string sql = "SELECT * FROM Invoice WHERE InvoiceID = @InvoiceID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
+	connection.Open();
+	
+	var orderDetail = connection.QueryFirst(sql, new {OrderDetailID = 1});
 
-    var invoice = connection.QueryFirst(sql, new {InvoiceID = 1});
+	Console.WriteLine(orderDetail.Quantity);
 }
 {% endhighlight %}
+
+Click [here](https://dotnetfiddle.net/eogWc1) to run this example.
 
 ## Example - Query Strongly Typed
 Execute a query and map the first result to a strongly typed list.
 
 {% highlight csharp %}
-string sql = "SELECT * FROM Invoice WHERE InvoiceID = @InvoiceID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
+	connection.Open();
+	
+	var orderDetail = connection.QueryFirst<OrderDetail>(sql, new {OrderDetailID = 1});
 
-    var invoice = connection.QueryFirst<Invoice>(sql, new {InvoiceID = 1});
+	Console.WriteLine(orderDetail.Quantity);
 }
 {% endhighlight %}
+
+Click [here](https://dotnetfiddle.net/AV0OgZ) to run this example.
