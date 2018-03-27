@@ -85,7 +85,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 }
 {% endhighlight %}
 
-Click [here](https://dotnetfiddle.net/P2uw27) to run this example.
+{% include component-try-it.html href='https://dotnetfiddle.net/P2uw27' %}
 
 ### Many
 Execute the INSERT Statement multiple times. Once for every object in the array list.
@@ -108,7 +108,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 }
 {% endhighlight %}
 
-Click [here](https://dotnetfiddle.net/vHOVx6) to run this example.
+{% include component-try-it.html href='https://dotnetfiddle.net/vHOVx6' %}
 
 ## Example - Execute UPDATE
 
@@ -116,7 +116,7 @@ Click [here](https://dotnetfiddle.net/vHOVx6) to run this example.
 Execute the UPDATE Statement a single time.
 
 {% highlight csharp %}
-string sql = "Update Categories Set Description = @Description where CategoryID = @CategoryID;";
+string sql = "UPDATE Categories SET Description = @Description WHERE CategoryID = @CategoryID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
@@ -128,13 +128,13 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 }
 {% endhighlight %}
 
-Click [here](https://dotnetfiddle.net/CWdH6z) to run this example.
+{% include component-try-it.html href='https://dotnetfiddle.net/CWdH6z' %}
 
 ### Many
 Execute the UPDATE Statement multiple times. Once for every object in the array list.
 
 {% highlight csharp %}
-string sql = "Update Categories Set Description = @Description where CategoryID = @CategoryID;";
+string sql = "UPDATE Categories SET Description = @Description WHERE CategoryID = @CategoryID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
@@ -153,7 +153,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 }
 {% endhighlight %}
 
-Click [here](https://dotnetfiddle.net/qCdKI3) to run this example.
+{% include component-try-it.html href='https://dotnetfiddle.net/qCdKI3' %}
 
 ## Example - Execute DELETE
 
@@ -173,7 +173,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 }
 {% endhighlight %}
 
-Click [here](https://dotnetfiddle.net/4bFT32) to run this example.
+{% include component-try-it.html href='https://dotnetfiddle.net/4bFT32' %}
 
 ### Many
 Execute the DELETE Statement multiple times. Once for every object in the array list.
@@ -198,4 +198,4 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 }
 {% endhighlight %}
 
-Click [here](https://dotnetfiddle.net/nxP1vL) to run this example.
+{% include component-try-it.html href='https://dotnetfiddle.net/nxP1vL' %}

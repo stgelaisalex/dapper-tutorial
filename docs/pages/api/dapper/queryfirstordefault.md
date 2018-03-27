@@ -51,7 +51,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 }
 {% endhighlight %}
 
-Click [here](https://dotnetfiddle.net/58YMxR) to run this example.
+{% include component-try-it.html href='https://dotnetfiddle.net/58YMxR' %}
 
 ## Example - Query Strongly Typed
 Execute a query and map the first result to a strongly typed list, or a default value if the sequence contains no elements.
@@ -69,5 +69,5 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 }
 {% endhighlight %}
 
-Click [here](https://dotnetfiddle.net/2WQ7sc) to run this example.
+{% include component-try-it.html href='https://dotnetfiddle.net/2WQ7sc' %}
 

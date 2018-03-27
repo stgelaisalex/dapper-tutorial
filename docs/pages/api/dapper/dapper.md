@@ -50,7 +50,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 }
 {% endhighlight %}
 
-Click [here](https://dotnetfiddle.net/vIvUNm) to run this example.
+{% include component-try-it.html href='https://dotnetfiddle.net/vIvUNm' %}
 
 ## Parameter
 Execute and queries method can use parameters from multiple different ways:
@@ -103,7 +103,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 }
 {% endhighlight %}
 
-Click [here](https://dotnetfiddle.net/EbR9BP) to run this example.
+{% include component-try-it.html href='https://dotnetfiddle.net/EbR9BP' %}
 
 ## Utilities
 

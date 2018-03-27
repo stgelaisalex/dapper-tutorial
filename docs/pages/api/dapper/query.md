@@ -45,7 +45,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 }
 {% endhighlight %}
 
-Click [here](https://dotnetfiddle.net/qTvEME) to run this example.
+{% include component-try-it.html href='https://dotnetfiddle.net/qTvEME' %}
 
 ## Example - Query Strongly Typed
 Raw SQL query can be executed using Query method and map the result to a strongly typed list.
@@ -63,7 +63,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 }
 {% endhighlight %}
 
-Click [here](https://dotnetfiddle.net/dXZc0s) to run this example.
+{% include component-try-it.html href='https://dotnetfiddle.net/dXZc0s' %}
 
 ## Example - Query Multi-Mapping (One to One)
 Raw SQL query can be executed using Query method and map the result to a strongly typed list with a one to one relation.
@@ -90,7 +90,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 }
 {% endhighlight %}
 
-Click [here](https://dotnetfiddle.net/9HbQ0L) to run this example.
+{% include component-try-it.html href='https://dotnetfiddle.net/9HbQ0L' %}
 
 ## Example - Query Multi-Mapping (One to Many)
 Raw SQL query can be executed using Query method and map the result to a strongly typed list with a one to many relations.
@@ -129,7 +129,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 }
 {% endhighlight %}
 
-Click [here](https://dotnetfiddle.net/Mn708g) to run this example.
+{% include component-try-it.html href='https://dotnetfiddle.net/Mn708g' %}
 
 ## Example - Query Multi-Type
 Raw SQL query can be executed using Query method and map the result to a list of different types.
