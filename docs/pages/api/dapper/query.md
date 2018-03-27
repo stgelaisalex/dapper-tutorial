@@ -69,28 +69,24 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 Raw SQL query can be executed using Query method and map the result to a strongly typed list with a one to one relation.
 
 {% highlight csharp %}
-string sql = "SELECT * FROM Orders AS A INNER JOIN OrderDetails AS B ON A.OrderID = B.OrderID;";
+string sql = "SELECT * FROM Invoice AS A INNER JOIN InvoiceDetail AS B ON A.InvoiceID = B.InvoiceID;";
 
-using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+using (var connection = My.ConnectionFactory())
 {
-	connection.Open();
+    connection.Open();
 
-	var list = connection.Query<Order, OrderDetail, Order>(
-     	sql,
-     	(order, orderDetail) =>
-     	{
-         	order.OrderDetail = orderDetail;
-         	return order;
-     	},
-     	splitOn: "OrderID")
- 	.Distinct()
- 	.ToList();
-
-	Console.WriteLine(list.Count);
+    var invoices = connection.Query<Invoice, InvoiceDetail, Invoice>(
+            sql,
+            (invoice, invoiceDetail) =>
+            {
+                invoice.InvoiceDetail = invoiceDetail;
+                return invoice;
+            },
+            splitOn: "InvoiceID")
+        .Distinct()
+        .ToList();
 }
 {% endhighlight %}
-
-{% include component-try-it.html href='https://dotnetfiddle.net/9HbQ0L' %}
 
 ## Example - Query Multi-Mapping (One to Many)
 Raw SQL query can be executed using Query method and map the result to a strongly typed list with a one to many relations.
