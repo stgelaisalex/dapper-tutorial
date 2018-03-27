@@ -74,26 +74,32 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 QuerySingle method can execute a query and map the first result to a dynamic list, and throws an exception if there is not exactly one element in the sequence.
 
 {% highlight csharp %}
-string sql = "SELECT * FROM Invoice WHERE InvoiceID = @InvoiceID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
+	connection.Open();
+	
+	var orderDetail = connection.QuerySingle(sql, new {OrderDetailID = 1});
 
-    var invoice = connection.QuerySingle(sql, new {InvoiceID = 1});
+	Console.WriteLine(orderDetail);
 }
 {% endhighlight %}
+{% include component-try-it.html href='https://dotnetfiddle.net/uEq0HC' %}
 
 ## Example - QuerySingleOrDefault
 QuerySingleOrDefault method can execute a query and map the first result to a dynamic list, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
 
 {% highlight csharp %}
-string sql = "SELECT * FROM Invoice WHERE InvoiceID = @InvoiceID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
+	connection.Open();
+	
+	var orderDetail = connection.QuerySingleOrDefault(sql, new {OrderDetailID = 1});
 
-    var invoice = connection.QuerySingleOrDefault(sql, new {InvoiceID = 1});
+	Console.WriteLine(orderDetail);
 }
 {% endhighlight %}
+{% include component-try-it.html href='https://dotnetfiddle.net/nYmbCo' %}
