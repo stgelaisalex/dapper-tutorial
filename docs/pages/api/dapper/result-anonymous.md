@@ -22,43 +22,53 @@ These extension methods can be called from any object of type IDbConnection.
 Query method can execute a query and map the result to a dynamic list.
 
 {% highlight csharp %}
-string sql = "SELECT * FROM Invoice;";
+string sql = "SELECT * FROM OrderDetails";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
+	connection.Open();
+	
+	var orderDetails = connection.Query(sql).ToList();
 
-    var invoices = connection.Query(sql).ToList();
+	Console.WriteLine(orderDetails.Count);
 }
 {% endhighlight %}
+
+{% include component-try-it.html href='https://dotnetfiddle.net/qTvEME' %}
 
 ## Example - QueryFirst
 QueryFirst method can execute a query and map the first result to a dynamic list.
 
 {% highlight csharp %}
-string sql = "SELECT * FROM Invoice WHERE InvoiceID = @InvoiceID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
+	connection.Open();
+	
+	var orderDetail = connection.QueryFirst(sql, new {OrderDetailID = 1});
 
-    var invoice = connection.QueryFirst(sql, new {InvoiceID = 1});
+	Console.WriteLine(orderDetail.Quantity);
 }
 {% endhighlight %}
+{% include component-try-it.html href='https://dotnetfiddle.net/eogWc1' %}
 
 ## Example - QueryFirstOrDefault
 QueryFirstOrDefault method can execute a query and map the first result to a dynamic list, or a default value if the sequence contains no elements.
 
 {% highlight csharp %}
-string sql = "SELECT * FROM Invoice WHERE InvoiceID = @InvoiceID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
+	connection.Open();
+	
+	var orderDetail = connection.QueryFirstOrDefault(sql, new {OrderDetailID = 1});
 
-    var invoice = connection.QueryFirstOrDefault(sql, new {InvoiceID = 1});
+	Console.WriteLine(orderDetail.Quantity);
 }
 {% endhighlight %}
+{% include component-try-it.html href='https://dotnetfiddle.net/58YMxR' %}
 
 ## Example - QuerySingle
 QuerySingle method can execute a query and map the first result to a dynamic list, and throws an exception if there is not exactly one element in the sequence.
