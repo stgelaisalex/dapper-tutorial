@@ -13,38 +13,39 @@ Dapper make it simple & safe (SQL Injection) to use parameter by supporting anon
 Execute a single time a SQL Command.
 
 {% highlight csharp %}
-var sql = "EXEC Invoice_Insert";
+string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
+	connection.Open();
 
-    var affectedRows = connection.Execute(sql,
-        new {Kind = InvoiceKind.WebInvoice, Code = "Single_Insert_1"},
-        commandType: CommandType.StoredProcedure);
+	var affectedRows = connection.Execute(sql, new {CustomerName = "Mark"});
 
-    My.Result.Show(affectedRows);
+	Console.WriteLine(affectedRows);
 }
 {% endhighlight %}
+{% include component-try-it.html href='https://dotnetfiddle.net/Z1iRIQ' %}  
 
 ### Many
 Execute many times a SQL Command
 
 {% highlight csharp %}
-var sql = "EXEC Invoice_Insert";
+string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
 	connection.Open();
-
+	
 	var affectedRows = connection.Execute(sql,
-		new[]
-		{
-			new {Kind = InvoiceKind.WebInvoice, Code = "Many_Insert_1"},
-			new {Kind = InvoiceKind.WebInvoice, Code = "Many_Insert_2"},
-			new {Kind = InvoiceKind.StoreInvoice, Code = "Many_Insert_3"}
-		},
-		commandType: CommandType.StoredProcedure
+ 		new[]
+ 		{
+     		new {CustomerName = "John"},
+     		new {CustomerName = "Andy"},
+     		new {CustomerName = "Allan"}
+ 		}
 	);
+
+	Console.WriteLine(affectedRows);
 }
 {% endhighlight %}
+{% include component-try-it.html href='https://dotnetfiddle.net/fvRKsY' %}  
