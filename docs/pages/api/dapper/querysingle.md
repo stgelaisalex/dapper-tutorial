@@ -64,7 +64,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 	
 	var orderDetail = connection.QuerySingle<OrderDetail>(sql, new {OrderDetailID = 1});
 
-	Console.WriteLine(orderDetail.ToString());
+	Console.WriteLine(orderDetail.OrderDetailID);
 }
 {% endhighlight %}
 {% include component-try-it.html href='https://dotnetfiddle.net/vnkv7q' %}

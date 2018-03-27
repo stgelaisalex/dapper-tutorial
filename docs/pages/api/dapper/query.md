@@ -96,40 +96,39 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 Raw SQL query can be executed using Query method and map the result to a strongly typed list with a one to many relations.
 
 {% highlight csharp %}
-string sql = "SELECT * FROM Categories AS A INNER JOIN Products AS B ON A.CategoryID = B.CategoryID;";
+string sql = "SELECT * FROM Orders AS A INNER JOIN OrderDetails AS B ON A.OrderID = B.OrderID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
-	
-	var categoryDictionary = new Dictionary<int, Category>();
-	
-	
-	var list = connection.Query<Category, Product, Category>(
-     	sql,
-     	(category, product) =>
-     	{
-         	Category categoryEntry;
-         
-         	if (!categoryDictionary.TryGetValue(category.CategoryID, out categoryEntry))
-         	{
-             	categoryEntry = category;
-             	categoryEntry.Products = new List<Product>();
-             	categoryDictionary.Add(categoryEntry.CategoryID, categoryEntry);
-         	}
-
-         	categoryEntry.Products.Add(product);
-         	return categoryEntry;
-     	},
-     	splitOn: "CategoryID")
- 	.Distinct()
- 	.ToList();
-
-	Console.WriteLine(list.Count);
+    connection.Open();
+    
+    var orderDictionary = new Dictionary<int, Order>();
+    
+    var list = connection.Query<Order, OrderDetail, Order>(
+        sql,
+        (order, orderDetail) =>
+        {
+          	Order orderEntry;
+          
+          	if (!orderDictionary.TryGetValue(order.OrderID, out orderEntry))
+          	{
+              	orderEntry = order;
+              	orderEntry.OrderDetails = new List<OrderDetail>();
+              	orderDictionary.Add(orderEntry.OrderID, orderEntry);
+          	}
+        
+          	orderEntry.OrderDetails.Add(orderDetail);
+          	return orderEntry;
+        },
+        splitOn: "OrderID")
+    .Distinct()
+    .ToList();
+    
+    Console.WriteLine(list.Count);
 }
 {% endhighlight %}
 
-{% include component-try-it.html href='https://dotnetfiddle.net/Mn708g' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/DPiy2b' %}
 
 ## Example - Query Multi-Type
 Raw SQL query can be executed using Query method and map the result to a list of different types.
