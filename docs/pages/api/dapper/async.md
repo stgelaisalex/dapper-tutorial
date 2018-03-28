@@ -19,79 +19,92 @@ Dapper also extend the IDbConnection interface with Async (asynchronous) methods
 > We only added non-asynchronous version in this tutorial to make it easier to read.
 
 ## ExecuteAsync
-{% highlight csharp %}
-var sql = "Invoice_Insert";
 
-using (var connection = My.ConnectionFactory())
+{% highlight csharp %}
+string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
+
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
 	connection.Open();
-
-	var affectedRows = connection.ExecuteAsync(sql,
-			new {Kind = InvoiceKind.WebInvoice, Code = "Single_Insert_1"},
-			commandType: CommandType.StoredProcedure)
-		.Result;
+	var affectedRows = connection.ExecuteAsync(sql, new {CustomerName = "Mark"}).Result;
 }
 {% endhighlight %}
+{% include component-try-it.html href='https://dotnetfiddle.net/2rVSi0' %}
 
 ## QueryAsync
 {% highlight csharp %}
-var sql = "Invoice_Insert";
+string sql = "SELECT * FROM OrderDetails";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
 	connection.Open();
+	
+	var orderDetails = connection.QueryAsync(sql).Result.ToList();
 
-	var invoices = connection.QueryAsync<Invoice>(sql).Result.ToList();
+	Console.WriteLine(orderDetails.Count());
 }
 {% endhighlight %}
+{% include component-try-it.html href='https://dotnetfiddle.net/X79bZI' %}
 
 ## QueryFirstAsync
 {% highlight csharp %}
-var sql = "SELECT * FROM Invoice WHERE InvoiceID = @InvoiceID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
 	connection.Open();
+	
+	var orderDetail = connection.QueryFirstAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
 
-	var invoice = connection.QueryFirstAsync<Invoice>(sql, new {InvoiceID = 1}).Result;
+	Console.WriteLine(orderDetail);
 }
 {% endhighlight %}
+{% include component-try-it.html href='https://dotnetfiddle.net/7Jbdcg' %}
 
 ## QueryFirstOrDefaultAsync
 {% highlight csharp %}
-var sql = "SELECT * FROM Invoice WHERE InvoiceID = @InvoiceID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
 	connection.Open();
+	
+	var orderDetail = connection.QueryFirstOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
 
-	var invoice = connection.QueryFirstOrDefaultAsync<Invoice>(sql, new {InvoiceID = 1}).Result;
+	Console.WriteLine(orderDetail.Quantity);
 }
 {% endhighlight %}
+{% include component-try-it.html href='https://dotnetfiddle.net/26NWaz' %}
 
 ## QuerySingleAsync
 {% highlight csharp %}
-var sql = "SELECT * FROM Invoice WHERE InvoiceID = @InvoiceID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
 	connection.Open();
+	
+	var orderDetail = connection.QuerySingleAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
 
-	var invoice = connection.QuerySingleAsync<Invoice>(sql, new {InvoiceID = 1}).Result;
+	Console.WriteLine(orderDetail.OrderDetailID);
 }
 {% endhighlight %}
+{% include component-try-it.html href='https://dotnetfiddle.net/pmjYFp' %}
 
 ## QuerySingleOrDefaultAsync
 {% highlight csharp %}
-var sql = "SELECT * FROM Invoice WHERE InvoiceID = @InvoiceID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
 	connection.Open();
+	
+	var orderDetail = connection.QuerySingleOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
 
-	var invoice = connection.QuerySingleOrDefaultAsync<Invoice>(sql, new {InvoiceID = 1}).Result;
+	Console.WriteLine(orderDetail.OrderDetailID);
 }
 {% endhighlight %}
+{% include component-try-it.html href='https://dotnetfiddle.net/WvbA02' %}
 
 ## QueryMultipleAsync
 {% highlight csharp %}
