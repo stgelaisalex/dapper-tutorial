@@ -15,10 +15,15 @@ A buffered query return the entire reader at once. That is ideal in most scenari
 A non-buffered query is equivalent as streaming. You only load objects on demand. That can be useful for a very large query to reduce memory usage.
 
 {% highlight csharp %}
-string sqlInvoices = "SELECT * FROM Invoice;";
+string sql = "SELECT * FROM OrderDetails;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	var invoices = connection.Query<Invoice>(sqlInvoices, buffered: false).ToList();
+	connection.Open();
+	
+	var orderDetails = connection.Query<OrderDetail>(sql, buffered: false).ToList();
+
+	Console.WriteLine(orderDetails.Count());
 }
 {% endhighlight %}
+{% include component-try-it.html href='https://dotnetfiddle.net/gLwGJO' %}
