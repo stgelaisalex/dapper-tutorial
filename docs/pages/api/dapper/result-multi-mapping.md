@@ -41,32 +41,36 @@ using (var connection = My.ConnectionFactory())
 Query method can execute a query and map the result to a strongly typed list with a one to many relations.
 
 {% highlight csharp %}
-string sql = "SELECT * FROM Invoice AS A INNER JOIN InvoiceItem AS B ON A.InvoiceID = B.InvoiceID;";
+string sql = "SELECT * FROM Orders AS A INNER JOIN OrderDetails AS B ON A.OrderID = B.OrderID;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
     connection.Open();
-
-    var invoiceDictionary = new Dictionary<int, Invoice>();
-
-    var invoices = connection.Query<Invoice, InvoiceItem, Invoice>(
-            sql,
-            (invoice, invoiceItem) =>
-            {
-                Invoice invoiceEntry;
-                
-                if (!invoiceDictionary.TryGetValue(invoice.InvoiceID, out invoiceEntry))
-                {
-                    invoiceEntry = invoice;
-                    invoiceEntry.Items = new List<InvoiceItem>();
-                    invoiceDictionary.Add(invoiceEntry.InvoiceID, invoiceEntry);
-                }
-
-                invoiceEntry.Items.Add(invoiceItem);
-                return invoiceEntry;
-            },
-            splitOn: "InvoiceID")
-        .Distinct()
-        .ToList();
+    
+    var orderDictionary = new Dictionary<int, Order>();
+    
+    var list = connection.Query<Order, OrderDetail, Order>(
+        sql,
+        (order, orderDetail) =>
+        {
+          	Order orderEntry;
+          
+          	if (!orderDictionary.TryGetValue(order.OrderID, out orderEntry))
+          	{
+              	orderEntry = order;
+              	orderEntry.OrderDetails = new List<OrderDetail>();
+              	orderDictionary.Add(orderEntry.OrderID, orderEntry);
+          	}
+        
+          	orderEntry.OrderDetails.Add(orderDetail);
+          	return orderEntry;
+        },
+        splitOn: "OrderID")
+    .Distinct()
+    .ToList();
+    
+    Console.WriteLine(list.Count);
 }
 {% endhighlight %}
+
+{% include component-try-it.html href='https://dotnetfiddle.net/DPiy2b' %}

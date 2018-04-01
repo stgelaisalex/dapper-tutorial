@@ -33,35 +33,37 @@ The following table shows different parameter of an Query method.
 Raw SQL query can be executed using Query method and map the result to a dynamic list.
 
 {% highlight csharp %}
-string sql = "SELECT * FROM Invoice;";
+string sql = "SELECT * FROM OrderDetails";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
+	connection.Open();
+	
+	var orderDetails = connection.Query(sql).ToList();
 
-    var invoices = connection.Query(sql).ToList();
-    
-    My.Result.Show(invoices);
+	Console.WriteLine(orderDetails.Count);
 }
 {% endhighlight %}
-<img src="images/3-anonynous-entity.png" alt="Query Anonymous" />
+
+{% include component-try-it.html href='https://dotnetfiddle.net/qTvEME' %}
 
 ## Example - Query Strongly Typed
 Raw SQL query can be executed using Query method and map the result to a strongly typed list.
 
 {% highlight csharp %}
-string sql = "SELECT * FROM Invoice;";
+string sql = "SELECT * FROM OrderDetails";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
+	connection.Open();
+	
+	var orderDetails = connection.Query<OrderDetail>(sql).ToList();
 
-    var invoices = connection.Query<Invoice>(sql).ToList();
-    
-    My.Result.Show(invoices);
+	Console.WriteLine(orderDetails.Count);
 }
 {% endhighlight %}
-<img src="images/3-invoices.png" alt="Query Strongly Typed" />
+
+{% include component-try-it.html href='https://dotnetfiddle.net/dXZc0s' %}
 
 ## Example - Query Multi-Mapping (One to One)
 Raw SQL query can be executed using Query method and map the result to a strongly typed list with a one to one relation.
@@ -83,48 +85,46 @@ using (var connection = My.ConnectionFactory())
             splitOn: "InvoiceID")
         .Distinct()
         .ToList();
-        
-    My.Result.Show(invoices);
 }
 {% endhighlight %}
-<img src="images/3-invoices-included-invoicedetail.png" alt="One to One" />
 
 ## Example - Query Multi-Mapping (One to Many)
 Raw SQL query can be executed using Query method and map the result to a strongly typed list with a one to many relations.
 
 {% highlight csharp %}
-string sql = "SELECT * FROM Invoice AS A INNER JOIN InvoiceItem AS B ON A.InvoiceID = B.InvoiceID;";
+string sql = "SELECT * FROM Orders AS A INNER JOIN OrderDetails AS B ON A.OrderID = B.OrderID;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
     connection.Open();
-
-    var invoiceDictionary = new Dictionary<int, Invoice>();
-
-    var invoices = connection.Query<Invoice, InvoiceItem, Invoice>(
-            sql,
-            (invoice, invoiceItem) =>
-            {
-                Invoice invoiceEntry;
-                
-                if (!invoiceDictionary.TryGetValue(invoice.InvoiceID, out invoiceEntry))
-                {
-                    invoiceEntry = invoice;
-                    invoiceEntry.Items = new List<InvoiceItem>();
-                    invoiceDictionary.Add(invoiceEntry.InvoiceID, invoiceEntry);
-                }
-
-                invoiceEntry.Items.Add(invoiceItem);
-                return invoiceEntry;
-            },
-            splitOn: "InvoiceID")
-        .Distinct()
-        .ToList();
+    
+    var orderDictionary = new Dictionary<int, Order>();
+    
+    var list = connection.Query<Order, OrderDetail, Order>(
+        sql,
+        (order, orderDetail) =>
+        {
+          	Order orderEntry;
+          
+          	if (!orderDictionary.TryGetValue(order.OrderID, out orderEntry))
+          	{
+              	orderEntry = order;
+              	orderEntry.OrderDetails = new List<OrderDetail>();
+              	orderDictionary.Add(orderEntry.OrderID, orderEntry);
+          	}
         
-    My.Result.Show(invoices);
+          	orderEntry.OrderDetails.Add(orderDetail);
+          	return orderEntry;
+        },
+        splitOn: "OrderID")
+    .Distinct()
+    .ToList();
+    
+    Console.WriteLine(list.Count);
 }
 {% endhighlight %}
-<img src="images/3-invoices-included-invoiceitem.png" alt="One to Many" />
+
+{% include component-try-it.html href='https://dotnetfiddle.net/DPiy2b' %}
 
 ## Example - Query Multi-Type
 Raw SQL query can be executed using Query method and map the result to a list of different types.
@@ -166,4 +166,4 @@ using (var connection = My.ConnectionFactory())
     My.Result.Show(invoices);
 }
 {% endhighlight %}
-<img src="images/3-invoices-with-storeinvoice-webinvoice.png" alt="Query Multi-Type" />
+

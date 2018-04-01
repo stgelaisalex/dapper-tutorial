@@ -37,17 +37,20 @@ Dapper will extend your IDbConnection interface with multiple methods:
 - [QueryMultiple](/querymultiple)
 
 {% highlight csharp %}
-string sqlInvoices = "SELECT * FROM Invoice;";
-string sqlInvoice = "SELECT * FROM Invoice WHERE InvoiceID = @InvoiceID;";
-string sp = "EXEC Invoice_Insert";
+string sqlOrderDetails = "SELECT * FROM OrderDetails;";
+string sqlOrderDetail = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
+string sqlCustomerInsert = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
-using (var connection = My.ConnectionFactory())
+
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	var invoices = connection.Query<Invoice>(sqlInvoices).ToList();
-	var invoice = connection.QueryFirstOrDefault(sqlInvoice, new {InvoiceID = 1});
-	var affectedRows = connection.Execute(sp, new { Param1 = "Single_Insert_1" }, commandType: CommandType.StoredProcedure);
+	var orderDetails = connection.Query(sqlOrderDetails).ToList();
+	var orderDetail = connection.QueryFirstOrDefault(sqlOrderDetail, new {OrderDetailID = 1});
+	var affectedRows = connection.Execute(sqlCustomerInsert,  new {CustomerName = "Mark"});
 }
 {% endhighlight %}
+
+{% include component-try-it.html href='https://dotnetfiddle.net/vIvUNm' %}
 
 ## Parameter
 Execute and queries method can use parameters from multiple different ways:
@@ -91,16 +94,16 @@ The result returned by queries method can be mapped to multiple types:
 - [Multi-Type](/result-multi-type)
 
 {% highlight csharp %}
-string sql = "SELECT * FROM Invoice;";
+string sqlOrderDetails = "SELECT * FROM OrderDetails;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
-
-    var anonymousList = connection.Query(sql).ToList();
-    var invoices = connection.Query<Invoice>(sql).ToList();
+	var anonymousList = connection.Query(sqlOrderDetails).ToList();
+	var orderDetails = connection.Query<OrderDetail>(sqlOrderDetails).ToList();
 }
 {% endhighlight %}
+
+{% include component-try-it.html href='https://dotnetfiddle.net/EbR9BP' %}
 
 ## Utilities
 
