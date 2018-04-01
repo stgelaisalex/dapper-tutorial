@@ -55,4 +55,3 @@ using (var transaction = new TransactionScope())
 	transaction.Complete();
 }
 {% endhighlight %}
-{% include component-try-it.html href='' %}
