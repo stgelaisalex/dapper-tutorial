@@ -17,7 +17,7 @@ These extension methods can be called from any object of type IDbConnection.
 ## Example - Query Multi-Mapping (One to One)
 Query method can execute a query and map the result to a strongly typed list with a one to one relation.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM Invoice AS A INNER JOIN InvoiceDetail AS B ON A.InvoiceID = B.InvoiceID;";
 
 using (var connection = My.ConnectionFactory())
@@ -40,7 +40,7 @@ using (var connection = My.ConnectionFactory())
 ## Example - Query Multi-Mapping (One to Many)
 Query method can execute a query and map the result to a strongly typed list with a one to many relations.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM Orders AS A INNER JOIN OrderDetails AS B ON A.OrderID = B.OrderID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))

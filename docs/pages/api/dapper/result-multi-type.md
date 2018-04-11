@@ -9,7 +9,7 @@ permalink: result-multi-type
 ## Description
 ExecuteReader method is an extension method which can be called from any object of type IDbConnection. It can execute a query and map the result to a list of different types.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM Invoice;";
 
 using (var connection = My.ConnectionFactory())

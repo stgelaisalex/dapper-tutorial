@@ -36,7 +36,7 @@ Dapper will extend your IDbConnection interface with multiple methods:
 - [QuerySingleOrDefault](/querysingleordefault)
 - [QueryMultiple](/querymultiple)
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sqlOrderDetails = "SELECT * FROM OrderDetails;";
 string sqlOrderDetail = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 string sqlCustomerInsert = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
@@ -60,7 +60,7 @@ Execute and queries method can use parameters from multiple different ways:
 - [List](/parameter-list)
 - [String](/parameter-string)
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 // Anonymous
 var affectedRows = connection.Execute(sql,
                     new {Kind = InvoiceKind.WebInvoice, Code = "Single_Insert_1"},
@@ -93,7 +93,7 @@ The result returned by queries method can be mapped to multiple types:
 - [Multi-Result](/result-multi-result)
 - [Multi-Type](/result-multi-type)
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sqlOrderDetails = "SELECT * FROM OrderDetails;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -112,7 +112,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 - [Transaction](transaction)
 - [Stored Procedure](stored-procedure)
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 // Async
 connection.QueryAsync<Invoice>(sql)
 

@@ -15,7 +15,7 @@ UPDATE entities using Bulk Operation.
 ## Example - Update Single
 UPDATE a single entity with Bulk Operation.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -27,7 +27,7 @@ using (var connection = My.ConnectionFactory())
 ## Example - Update Many
 UPDATE many entities with Bulk Operation.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -39,7 +39,7 @@ using (var connection = My.ConnectionFactory())
 ## Example - Update with relation (One to One)
 UPDATE entities with a one to one relation with Bulk Operation.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -51,7 +51,7 @@ using (var connection = My.ConnectionFactory())
 ## Example - Update with relation (One to Many)
 UPDATE entities with a one to many relation with Bulk Operation.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();

@@ -29,7 +29,8 @@ The following table shows different parameter of an Execute method.
 ### Single
 Execute the Stored Procedure a single time.
 
-{% highlight csharp %}
+
+{% include template-example.html %} {% highlight csharp %}
 string sql = "Invoice_Insert";
 
 using (var connection = My.ConnectionFactory())
@@ -49,7 +50,8 @@ using (var connection = My.ConnectionFactory())
 ### Many
 Execute the Stored Procedure multiple times. Once for every object in the array list.
 
-{% highlight csharp %}
+
+{% include template-example.html %} {% highlight csharp %}
 string sql = "Invoice_Insert";
 
 using (var connection = My.ConnectionFactory())
@@ -75,7 +77,8 @@ using (var connection = My.ConnectionFactory())
 ### Single
 Execute the INSERT Statement a single time.
 
-{% highlight csharp %}
+
+{% include template-example.html %} {% highlight csharp %}
 string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -90,7 +93,8 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 ### Many
 Execute the INSERT Statement multiple times. Once for every object in the array list.
 
-{% highlight csharp %}
+
+{% include template-example.html %} {% highlight csharp %}
 string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -115,7 +119,8 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 ### Single
 Execute the UPDATE Statement a single time.
 
-{% highlight csharp %}
+
+{% include template-example.html %} {% highlight csharp %}
 string sql = "UPDATE Categories SET Description = @Description WHERE CategoryID = @CategoryID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -133,7 +138,8 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 ### Many
 Execute the UPDATE Statement multiple times. Once for every object in the array list.
 
-{% highlight csharp %}
+
+{% include template-example.html %} {% highlight csharp %}
 string sql = "UPDATE Categories SET Description = @Description WHERE CategoryID = @CategoryID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -160,7 +166,8 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 ### Single
 Execute the DELETE Statement a single time.
 
-{% highlight csharp %}
+
+{% include template-example.html %} {% highlight csharp %}
 string sql = "DELETE FROM Customers WHERE CustomerID = @CustomerID";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -178,7 +185,8 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 ### Many
 Execute the DELETE Statement multiple times. Once for every object in the array list.
 
-{% highlight csharp %}
+
+{% include template-example.html %} {% highlight csharp %}
 string sql = "DELETE FROM OrderDetails WHERE OrderDetailID = @OrderDetailID";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))

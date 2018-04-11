@@ -15,7 +15,7 @@ INSERT a single or many entities.
 ## Example - Insert Single
 INSERT a single entitiy.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -27,7 +27,7 @@ using (var connection = My.ConnectionFactory())
 ## Example - Insert Many
 INSERT many entities.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();

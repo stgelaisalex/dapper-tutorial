@@ -8,7 +8,7 @@ permalink: parameter-string
 
 ## Description
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 var sql = "SELECT * FROM Invoice WHERE Code = @Code;";
 
 using (var connection = My.ConnectionFactory())

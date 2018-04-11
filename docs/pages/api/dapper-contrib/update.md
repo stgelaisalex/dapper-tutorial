@@ -15,7 +15,7 @@ UPDATE a single or many entities.
 ## Example - Update Single
 UPDATE a single entitiy.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -27,7 +27,7 @@ using (var connection = My.ConnectionFactory())
 ## Example - Update Many
 UPDATE many entities.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();

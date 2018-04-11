@@ -9,7 +9,7 @@ permalink: data-annotation-computed
 ## Description
 Specifie the property should be excluded from update.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 [Table("Invoice")]
 public class InvoiceContrib
 {

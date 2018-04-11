@@ -1,25 +1,32 @@
 ---
 layout: default
 title: Dapper Tutorials & Examples | C# Dapper dot net Documentations | C# Micro ORM
+permalink: index
 ---
 
-<h1 class="text-center" style="margin-bottom: 60px; font-size: 60px">Dapper Tutorials & Examples - C# Micro ORM</h1>
 
+
+<div class="rotator rotator-dark">
+	<div class="rotator-header">
+		<div class="rotator-header-inner wow slideInRight"></div>
+	</div>
+	<div class="rotator-body">
+		<div class="rotator-body-inner">
 <div>
-<div style="margin: auto; width: 728px; margin-bottom: 60px;">
-<script type="text/javascript">
-    google_ad_client = "ca-pub-7869211898023730";
-    google_ad_slot = "1439249006";
-    google_ad_width = 728;
-    google_ad_height = 90;
-</script>
-<!-- leaderboard -->
-<script type="text/javascript"
-src="//pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
+	<div style="margin: auto; width: 728px; margin-bottom: 60px;">
+	<script type="text/javascript">
+		google_ad_client = "ca-pub-7869211898023730";
+		google_ad_slot = "1439249006";
+		google_ad_width = 728;
+		google_ad_height = 90;
+	</script>
+	</div>
 </div>
-</div>
-
+<br>
+<br>
+<br>
+<div class="container">
+<h1 class="text-center" style=" font-size: 60px">Dapper Tutorials & Examples <br> C# Micro ORM</h1>
 <div class="row">
 	<div class="col-md-6 col-lg-4">
 		<div class="jumbotron">
@@ -28,7 +35,7 @@ src="//pagead2.googlesyndication.com/pagead/show_ads.js">
 			<hr class="my-4">
 			<p>Start learning about how to use Dapper with our tutorial.</p>
 			<p class="lead">
-				<a class="btn btn-primary btn-lg" href="dapper" role="button">Learn more</a>
+				<a class="btn btn-z btn-lg" href="dapper" role="button">Learn more</a>
 			</p>
 		</div>
 	</div>
@@ -39,7 +46,7 @@ src="//pagead2.googlesyndication.com/pagead/show_ads.js">
 			<hr class="my-4">
 			<p>Start learning the common API of Dapper, and everything around it.</p>
 			<p class="lead">
-				<a class="btn btn-primary btn-lg" href="dapper" role="button">Learn more</a>
+				<a class="btn btn-z btn-lg" href="dapper" role="button">Learn more</a>
 			</p>
 		</div>
 	</div>
@@ -50,7 +57,7 @@ src="//pagead2.googlesyndication.com/pagead/show_ads.js">
 			<hr class="my-4">
 			<p>Start learning how to use Dapper through C# and VB.NET examples & demos.</p>
 			<p class="lead">
-				<a class="btn btn-primary btn-lg" href="examples" role="button">Learn more</a>
+				<a class="btn btn-z btn-lg" href="examples" role="button">Learn more</a>
 			</p>
 		</div>
 	</div>
@@ -90,3 +97,12 @@ src="//pagead2.googlesyndication.com/pagead/show_ads.js">
 	</div>
 	!-->
 </div>
+</div>
+		</div>
+	</div>
+	<div class="rotator-footer">
+		<div class="rotator-footer-inner wow slideInLeft"></div>
+	</div>
+</div>
+<br>
+<br>

@@ -8,7 +8,7 @@ permalink: api
 
 <div class="row">
 
-  <div class="col-lg-4">
+  <div class="col">
   
 <div class="card">
 	<div class="card-header">
@@ -62,7 +62,7 @@ permalink: api
   
   </div>
   
-  <div class="col-lg-4">
+  <div class="col">
   
 <div class="card">
 	<div class="card-header">
@@ -88,7 +88,7 @@ permalink: api
   
   </div>
   
-  <div class="col-lg-4">
+  <div class="col">
   
 <div class="card">
 	<div class="card-header">

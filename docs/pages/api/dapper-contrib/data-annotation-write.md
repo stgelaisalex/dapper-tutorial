@@ -9,7 +9,7 @@ permalink: data-annotation-write
 ## Description
 Specifie if the property is writable or not.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 [Table("Invoice")]
 public class InvoiceContrib
 {

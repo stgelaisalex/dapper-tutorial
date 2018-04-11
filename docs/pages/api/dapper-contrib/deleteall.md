@@ -9,7 +9,7 @@ permalink: deleteall
 ## Description
 DELETE ALL entities.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();

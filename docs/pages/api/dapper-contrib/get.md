@@ -9,7 +9,7 @@ permalink: get
 ## Description
 Get a single entity by ID.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();

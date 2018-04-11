@@ -15,7 +15,7 @@ DELETE a single or many entities.
 ## Example - Delete Single
 DELETE a single entitiy.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -27,7 +27,7 @@ using (var connection = My.ConnectionFactory())
 ## Example - Delete Many
 DELETE many entities.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();

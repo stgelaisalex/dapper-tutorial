@@ -20,7 +20,7 @@ Dapper also extend the IDbConnection interface with Async (asynchronous) methods
 
 ## ExecuteAsync
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -32,7 +32,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {% include component-try-it.html href='https://dotnetfiddle.net/2rVSi0' %}
 
 ## QueryAsync
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM OrderDetails";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -47,7 +47,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {% include component-try-it.html href='https://dotnetfiddle.net/X79bZI' %}
 
 ## QueryFirstAsync
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -62,7 +62,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {% include component-try-it.html href='https://dotnetfiddle.net/7Jbdcg' %}
 
 ## QueryFirstOrDefaultAsync
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -77,7 +77,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {% include component-try-it.html href='https://dotnetfiddle.net/26NWaz' %}
 
 ## QuerySingleAsync
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -92,7 +92,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {% include component-try-it.html href='https://dotnetfiddle.net/pmjYFp' %}
 
 ## QuerySingleOrDefaultAsync
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -107,7 +107,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {% include component-try-it.html href='https://dotnetfiddle.net/WvbA02' %}
 
 ## QueryMultipleAsync
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 var sql = "SELECT * FROM Invoice; SELECT * FROM InvoiceItem;";
 
 using (var connection = My.ConnectionFactory())

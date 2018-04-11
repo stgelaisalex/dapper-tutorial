@@ -32,7 +32,7 @@ The following table shows different parameter of an Query method.
 ## Example - Query Anonymous
 Raw SQL query can be executed using Query method and map the result to a dynamic list.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM OrderDetails";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -50,7 +50,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 ## Example - Query Strongly Typed
 Raw SQL query can be executed using Query method and map the result to a strongly typed list.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM OrderDetails";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -68,7 +68,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 ## Example - Query Multi-Mapping (One to One)
 Raw SQL query can be executed using Query method and map the result to a strongly typed list with a one to one relation.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM Invoice AS A INNER JOIN InvoiceDetail AS B ON A.InvoiceID = B.InvoiceID;";
 
 using (var connection = My.ConnectionFactory())
@@ -91,7 +91,7 @@ using (var connection = My.ConnectionFactory())
 ## Example - Query Multi-Mapping (One to Many)
 Raw SQL query can be executed using Query method and map the result to a strongly typed list with a one to many relations.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM Orders AS A INNER JOIN OrderDetails AS B ON A.OrderID = B.OrderID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -129,7 +129,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 ## Example - Query Multi-Type
 Raw SQL query can be executed using Query method and map the result to a list of different types.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM Invoice;";
 
 using (var connection = My.ConnectionFactory())

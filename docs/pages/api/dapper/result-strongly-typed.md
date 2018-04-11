@@ -21,7 +21,7 @@ These extension methods can be called from any object of type IDbConnection.
 ## Example - Query
 Query method can execute a query and map the result to a strongly typed list.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM OrderDetails";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -38,7 +38,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 ## Example - QueryFirst
 QueryFirst method can execute a query and map the first result to a strongly typed list.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -55,7 +55,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 ## Example - QueryFirstOrDefault
 QueryFirstOrDefault method can execute a query and map the first result to a strongly typed list, or a default value if the sequence contains no elements.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -73,7 +73,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 ## Example - QuerySingle
 QuerySingle method can execute a query and map the first result to a strongly typed list, and throws an exception if there is not exactly one element in the sequence.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -90,7 +90,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 ## Example - QuerySingleOrDefault
 QuerySingleOrDefault method can execute a query and map the first result to a strongly typed list, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))

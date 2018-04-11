@@ -12,7 +12,7 @@ Dapper make it simple & safe (SQL Injection) to use parameter by supporting anon
 ### Single
 Execute a single time a SQL Command.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -29,7 +29,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 ### Many
 Execute many times a SQL Command
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))

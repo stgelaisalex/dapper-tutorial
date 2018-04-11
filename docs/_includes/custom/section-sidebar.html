@@ -1,0 +1,131 @@
+{% if page.path contains "/api/" %}
+<nav class="card card-box2 card-box-light2 card-box-nav">
+	<div class="card-body">
+		<h3>Getting Started</h3>
+		<ul>
+			<li>
+				<a href="{{ site.github.url }}/dapper">Introduction</a>
+			</li>
+		</ul>
+
+		<h3>Methods</h3>
+		<ul>
+			<li>
+				<a href="{{ site.github.url }}/execute">Execute</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/query">Query</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/queryfirst">QueryFirst</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/queryfirstordefault">QueryFirstOrDefault</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/querysingle">QuerySingle</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/querysingleordefault">QuerySingleOrDefault</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/querymultiple">QueryMultiple</a>
+			</li>
+		</ul>
+		<h3>Parameters</h3>
+		<ul>
+			<li>
+				<a href="{{ site.github.url }}/parameter-anonymous">Anonymous</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/parameter-dynamic">Dynamic</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/parameter-list">List</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/parameter-string">String</a>
+			</li>
+		</ul>
+		
+		<h3>Result</h3>
+		<ul>
+			<li>
+				<a href="{{ site.github.url }}/result-anonymous">Anonymous</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/result-strongly-typed">Strongly Typed</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/result-multi-mapping">Multi-Mapping</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/result-multi-result">Multi-Result</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/result-multi-type">Multi-Type</a>
+			</li>
+		</ul>
+
+		<h3>Parameters</h3>
+		<ul>
+			<li>
+				<a href="{{ site.github.url }}/async">Async</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/buffered">Buffered</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/transaction">Transaction</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/stored-procedure">Stored Procedure</a>
+			</li>
+		</ul>
+
+	</div>
+</nav>
+
+{% elsif page.path contains "/thirdpartylibraries/" %}
+<nav class="card card-box2 card-box-light2 card-box-nav">
+	<div class="card-body">
+		<h3>Methods</h3>
+		<ul>
+			<li>
+				<a href="{{ site.github.url }}/third-party-library">Overview</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/dapper-plus-third-party-library">Dapper.Plus</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/dapper-async">Dapper-Async</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/dapper-contrib-third-party-library">Dapper.Contrib</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/dapper-extensions">DapperExtensions</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/dapper-fastcrud">Dapper.FastCrud</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/dapper-fluentmap">Dapper.FluentMap</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/dapper-mapper">Dapper.Mapper</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/dapper-rainbow">Dapper.Rainbow</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/dapper-simplecrud">Dapper.SimpleCRUD</a>
+			</li>
+			<li>
+				<a href="{{ site.github.url }}/dapper-simplesave">Dapper.SimpleSave</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+{% endif %}

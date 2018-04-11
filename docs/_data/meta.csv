@@ -1,0 +1,53 @@
+permalink,title,meta-description,meta-keywords,h1,h2,h3,nagivation,template,css
+index,Dapper,api,,Dapper,,,,container-none,
+execute,Dapper - Execute,api,,Dapper - Execute,,,,container-doc,section-article
+query,Dapper - Query,api,,Dapper - Query,,,,container-doc,section-article
+queryfirst,Dapper - QueryFirst,api,,Dapper - QueryFirst,,,,container-doc,section-article
+queryfirstordefault,Dapper - QueryFirstOrDefault,api,,Dapper - QueryFirstOrDefault,,,,container-doc,section-article
+querysingle,Dapper - QuerySingle,api,,Dapper - QuerySingle,,,,container-doc,section-article
+querysingleordefault,Dapper - QuerySingleOrDefault,api,,Dapper - QuerySingleOrDefault,,,,container-doc,section-article
+querymultiple,Dapper - QueryMultiple,api,,Dapper - QueryMultiple,,,,container-doc,section-article
+parameter-anonymous,Dapper - Parameter Anonymous,api,,Dapper - Parameter Anonymous,,,,container-doc,section-article
+parameter-dynamic,Dapper - Parameter Dynamic,api,,Dapper - Parameter Dynamic,,,,container-doc,section-article
+parameter-list,Dapper - Parameter List,api,,Dapper - Parameter List,,,,container-doc,section-article
+parameter-string,Dapper - Parameter String,api,,Dapper - Parameter String,,,,container-doc,section-article
+result-anonymous,Dapper - Result Anonymous,api,,Dapper - Result Anonymous,,,,container-doc,section-article
+result-strongly-typed,Dapper - Result Strongly Typed,api,,Dapper - Result Strongly Typed,,,,container-doc,section-article
+result-multi-mapping,Dapper - Result Multi-Mapping,api,,Dapper - Result Multi-Mapping,,,,container-doc,section-article
+result-multi-result,Dapper - Result Multi-Result,api,,Dapper - Result Multi-Result,,,,container-doc,section-article
+result-multi-type,Dapper - Result Multi-Type,api,,Dapper - Result Multi-Type,,,,container-doc,section-article
+stored-procedure,Dapper - Stored Procedure,api,,Dapper - Stored Procedure,,,,container-doc,section-article
+dapper-plus,Dapper Plus,api,,Dapper Plus,,,,container-doc,section-article
+bulk-insert,Dapper Plus - Bulk Insert,api,,Dapper Plus - Bulk Insert,,,,container-doc,section-article
+bulk-update,Dapper Plus - Bulk Update,api,,Dapper Plus - Bulk Update,,,,container-doc,section-article
+bulk-delete,Dapper Plus - Bulk Delete,api,,Dapper Plus - Bulk Delete,,,,container-doc,section-article
+bulk-merge,Dapper Plus - Bulk Merge,api,,Dapper Plus - Bulk Merge,,,,container-doc,section-article
+dapper-contrib,Dapper Contrib,api,,Dapper Contrib,,,,container-doc,section-article
+get,Dapper Contrib - Get,api,,Dapper Contrib - Get,,,,container-doc,section-article
+getall,Dapper Contrib - GetAll,api,,Dapper Contrib - GetAll,,,,container-doc,section-article
+insert,Dapper Contrib - Insert,api,,Dapper Contrib - Insert,,,,container-doc,section-article
+update,Dapper Contrib - Update,api,,Dapper Contrib - Update,,,,container-doc,section-article
+delete,Dapper Contrib - Delete,api,,Dapper Contrib - Delete,,,,container-doc,section-article
+deleteall,Dapper Contrib - DeleteAll,api,,Dapper Contrib - DeleteAll,,,,container-doc,section-article
+data-annotation-key,Dapper Contrib - Data Annotation Key,api,,Dapper Contrib - Data Annotation Key,,,,container-doc,section-article
+data-annotation-explicitkey,Dapper Contrib - Data Annotation ExplicitKey,api,,Dapper Contrib - Data Annotation ExplicitKey,,,,container-doc,section-article
+data-annotation-table,Dapper Contrib - Data Annotation Table,api,,Dapper Contrib - Data Annotation Table,,,,container-doc,section-article
+data-annotation-write,Dapper Contrib - Data Annotation Write,api,,Dapper Contrib - Data Annotation Write,,,,container-doc,section-article
+data-annotation-computed,Dapper Contrib - Data Annotation Computed,api,,Dapper Contrib - Data Annotation Computed,,,,container-doc,section-article
+third-party-library,Third Party Libraries,thirdpartylibraries,,Third Party Libraries,,,,container-doc,section-article
+dapper-plus-third-party-library,Dapper Plus,thirdpartylibraries,,Dapper Plus,,,,container-doc,section-article
+dapper-async,Dapper-Async,thirdpartylibraries,,Dapper-Async,,,,container-doc,section-article
+dapper-contrib-third-party-library,Dapper.Contrib,thirdpartylibraries,,Dapper.Contrib,,,,container-doc,section-article
+dapper-extensions,DapperExtensions,thirdpartylibraries,,DapperExtensions,,,,container-doc,section-article
+dapper-fastcrud,Dapper.FastCrud,thirdpartylibraries,,Dapper.FastCrud,,,,container-doc,section-article
+dapper-fluentmap,Dapper.FluentMap,thirdpartylibraries,,Dapper.FluentMap,,,,container-doc,section-article
+dapper-mapper,Dapper.Mapper,thirdpartylibraries,,Dapper.Mapper,,,,container-doc,section-article
+dapper-rainbow,Dapper.Rainbow,thirdpartylibraries,,Dapper.Rainbow,,,,container-doc,section-article
+dapper-simplecrud,Dapper.SimpleCRUD,thirdpartylibraries,,Dapper.SimpleCRUD,,,,container-doc,section-article
+dapper-simplesave,Dapper.SimpleSave,thirdpartylibraries,,Dapper.SimpleSave,,,,container-doc,section-article
+api,API,api,,API,,,,container-doc,section-article
+examples,Examples,examples,,Examples,,,,container-page,section-article
+async,Async,async,,Async,,,,container-doc,section-article
+buffered,Buffered,buffered,,Buffered,,,,container-doc,section-article
+transaction,Transaction,transaction,,Transaction,,,,container-doc,section-article
+dapper,Dapper,dapper,,Dapper,,,,container-doc,section-article

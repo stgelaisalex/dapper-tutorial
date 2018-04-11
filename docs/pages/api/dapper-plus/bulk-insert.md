@@ -15,7 +15,7 @@ INSERT entities using Bulk Operation.
 ## Example - Insert Single
 INSERT a single entity with Bulk Operation.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -27,7 +27,7 @@ using (var connection = My.ConnectionFactory())
 ## Example - Insert Many
 INSERT many entities with Bulk Operation.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -39,7 +39,7 @@ using (var connection = My.ConnectionFactory())
 ## Example - Insert with relation (One to One)
 INSERT entities with a one to one relation with Bulk Operation.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -53,7 +53,7 @@ using (var connection = My.ConnectionFactory())
 ## Example - Insert with relation (One to Many)
 INSERT entities with a one to many relation with Bulk Operation.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();

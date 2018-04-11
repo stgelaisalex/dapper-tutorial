@@ -9,7 +9,7 @@ permalink: data-annotation-table
 ## Description
 Specifie the destination table name mapped to the entity.
 
-{% highlight csharp %}
+{% include template-example.html %} {% highlight csharp %}
 [Table("Invoice")]
 public class InvoiceContrib
 {
