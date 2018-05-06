@@ -20,14 +20,14 @@
         <svg class="nectar-shape-divider" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"> <path d="M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z"></path> </svg>
     </div>
     <div id="code-mirror-container">
-{% highlight csharp %}
+```csharp
 string sql = "SELECT * FROM Invoices";
 
 using (var conn = My.ConnectionFactory())
 {
     var invoices = conn.Query&lt;Invoice&gt;(sql);
 }
-        {% endhighlight %}
+```
     </div>
 </div>
 
@@ -111,7 +111,7 @@ using (var conn = My.ConnectionFactory())
                     <div class="card card-code card-code-dark">
                         <div class="card-header"><h5>Auditing Example</h5></div>
                         <div class="card-body">   
-{% highlight csharp %}
+```csharp
 string sql = "Invoice_Insert";
 
 using (var connection = My.ConnectionFactory())
@@ -122,7 +122,7 @@ using (var connection = My.ConnectionFactory())
 
     My.Result.Show(affectedRows);
 }
-{% endhighlight %}
+```
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@ using (var connection = My.ConnectionFactory())
                     <div class="card card-code card-code-dark">
                         <div class="card-header"><h5>Delete Example</h5></div>
                         <div class="card-body">
-{% highlight csharp %}
+```csharp
 string sql = "SELECT * FROM OrderDetails";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -156,7 +156,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
     Console.WriteLine(orderDetails.Count);
 }
-{% endhighlight %}
+```
                         </div>
                     </div>
                 </div>
@@ -179,7 +179,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
                     <div class="card card-code card-code-dark">
                         <div class="card-header"><h5>Delete Example</h5></div>
                         <div class="card-body">
-{% highlight csharp %}
+```csharp
 string sql = "INSERT INTO Customers (CustomerName) Values (@@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -188,7 +188,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
     Console.WriteLine(affectedRows);
 }
-{% endhighlight %}
+```
                         </div>
                     </div>
                 </div>
@@ -212,7 +212,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
                     <div class="card card-code card-code-dark">
                         <div class="card-header"><h5>Update Example</h5></div>
                         <div class="card-body">
-{% highlight csharp %}
+```csharp
 string sql = "SELECT * FROM OrderDetails";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -221,7 +221,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
     Console.WriteLine(orderDetails.Count);
 }
-{% endhighlight %}
+```
                         </div>
                     </div>
                 </div>
