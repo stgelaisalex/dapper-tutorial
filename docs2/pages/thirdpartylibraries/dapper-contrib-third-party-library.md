@@ -21,9 +21,9 @@ If there is any change and you call the Update method, then it will generate the
 Dapper.Contrib is available through NuGet: <a href="https://www.nuget.org/packages/Dapper.Contrib/" target="_blank">https://www.nuget.org/packages/Dapper.Contrib/</a>
 
 You can easily install this library by running the following command:
-{% highlight csharp %}
+```csharp
 PM> Install-Package Dapper.Contrib
-{% endhighlight %}
+```
 
 More information and documentation can be found at: <a href="https://github.com/StackExchange/Dapper/tree/master/Dapper.Contrib">https://github.com/StackExchange/Dapper/tree/master/Dapper.Contrib</a>
 
@@ -40,7 +40,7 @@ Once you installed this library then the following extension methods will automa
 
 You can use these extension methods easily in your code.
 
-{% highlight csharp %}
+```csharp
 
 var invoice = connection.Get<InvoiceContrib>(1);
 var invoices = connection.GetAll<InvoiceContrib>().ToList();
@@ -49,7 +49,7 @@ var isSuccess = connection.Update(new InvoiceContrib {InvoiceID = 1, Code = "Upd
 var isSuccess = connection.Delete(new InvoiceContrib {InvoiceID = 1});
 var isSuccess = connection.DeleteAll<InvoiceContrib>();
 
-{% endhighlight %}
+```
 
 Dapper.Contrib also allow mapping for special attributes using Data Annotations:
 
@@ -59,7 +59,7 @@ Dapper.Contrib also allow mapping for special attributes using Data Annotations:
 - **Write**: Specify the property if it is writable or not.
 - **Computed**: Specify the property that should be excluded from an update.
 
-{% highlight csharp %}
+```csharp
 
 [Table("Invoice")]
 public class InvoiceContrib
@@ -86,7 +86,7 @@ using (var connection = My.ConnectionFactory())
 	var isSuccess = connection.Update(invoices);
 }
 
-{% endhighlight %}
+```
 
 Unfortunately, there is no proper documentation available for this library, but you can get a little bit of help from: <a href="https://github.com/StackExchange/Dapper/tree/master/Dapper.Contrib" target="_blank">https://github.com/StackExchange/Dapper/tree/master/Dapper.Contrib</a>
 
@@ -97,19 +97,19 @@ There is no support for composite key mapping.
 Dapper.Contrib has Update extension method, and SQLiteConnection also exposes an Update event that clashes with each other. But you can easily resolve the clash by using any of the following ways:
 - Pass a type parameter to Update method
 
-{% highlight csharp %}
+```csharp
 
 var isSuccess = connection.Update<InvoiceContrib>(new InvoiceContrib {InvoiceID = 1, Code = "Update_Single_1"});
 
-{% endhighlight %}
+```
 
 - The other way is to call the Update method explicitly using SqlMapperExtensions.
 
-{% highlight csharp %}
+```csharp
 
 var isSuccess = SqlMapperExtensions.Update(connection, new InvoiceContrib {InvoiceID = 1, Code = "Update_Single_2"});
 
-{% endhighlight %}
+```
 
 ### Support
 

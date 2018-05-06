@@ -20,9 +20,9 @@ It is a three step process.
 ## Installation
 Dapper is installed through NuGet: <a href="https://www.nuget.org/packages/Dapper" target="_blank">https://www.nuget.org/packages/Dapper</a>
 
-{% highlight csharp %}
+```csharp
 PM> Install-Package Dapper
-{% endhighlight %}
+```
 
 ## Requirement
 Dapper work with any database provider since there is no DB specific implementation.
@@ -38,7 +38,7 @@ Dapper will extend your IDbConnection interface with multiple methods:
 - [QuerySingleOrDefault](/querysingleordefault)
 - [QueryMultiple](/querymultiple)
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sqlOrderDetails = "SELECT * FROM OrderDetails;";
 string sqlOrderDetail = "SELECT * FROM OrderDetails WHERE OrderDetailID = @@OrderDetailID;";
 string sqlCustomerInsert = "INSERT INTO Customers (CustomerName) Values (@@CustomerName);";
@@ -50,7 +50,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 	var orderDetail = connection.QueryFirstOrDefault(sqlOrderDetail, new {OrderDetailID = 1});
 	var affectedRows = connection.Execute(sqlCustomerInsert,  new {CustomerName = "Mark"});
 }
-{% endhighlight %}
+```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/vIvUNm' %}
 
@@ -62,7 +62,7 @@ Execute and queries method can use parameters from multiple different ways:
 - [List](/parameter-list)
 - [String](/parameter-string)
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 // Anonymous
 var affectedRows = connection.Execute(sql,
                     new {Kind = InvoiceKind.WebInvoice, Code = "Single_Insert_1"},
@@ -83,7 +83,7 @@ commandType: CommandType.StoredProcedure);
 connection.Query<Invoice>(sql, new {Kind = new[] {InvoiceKind.StoreInvoice, InvoiceKind.WebInvoice}}).ToList();
 // String
 connection.Query<Invoice>(sql, new {Code = new DbString {Value = "Invoice_1", IsFixedLength = false, Length = 9, IsAnsi = true}}).ToList();
-{% endhighlight %}
+```
 
 ## Result
 The result returned by queries method can be mapped to multiple types:
@@ -94,7 +94,7 @@ The result returned by queries method can be mapped to multiple types:
 - [Multi-Result](/result-multi-result)
 - [Multi-Type](/result-multi-type)
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sqlOrderDetails = "SELECT * FROM OrderDetails;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -102,7 +102,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 var anonymousList = connection.Query(sqlOrderDetails).ToList();
 var orderDetails = connection.Query<OrderDetail>(sqlOrderDetails).ToList();
 }
-{% endhighlight %}
+```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/EbR9BP' %}
 
@@ -113,7 +113,7 @@ var orderDetails = connection.Query<OrderDetail>(sqlOrderDetails).ToList();
 - [Transaction](transaction)
 - [Stored Procedure](stored-procedure)
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 // Async
 connection.QueryAsync<Invoice>(sql)
 
@@ -135,4 +135,4 @@ transaction.Commit();
 var affectedRows = connection.Execute(sql,
 new {Kind = InvoiceKind.WebInvoice, Code = "Single_Insert_1"},
 commandType: CommandType.StoredProcedure);
-{% endhighlight %}
+```

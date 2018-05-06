@@ -15,19 +15,19 @@ DELETE a single or many entities.
 ## Example - Delete Single
 DELETE a single entitiy.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
 
     var isSuccess = connection.Delete(new Invoice {InvoiceID = 1});
 }
-{% endhighlight %}
+```
 
 ## Example - Delete Many
 DELETE many entities.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -41,4 +41,4 @@ using (var connection = My.ConnectionFactory())
 
     var isSuccess = connection.Delete(list);
 }
-{% endhighlight %}
+```

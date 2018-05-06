@@ -15,19 +15,19 @@ UPDATE a single or many entities.
 ## Example - Update Single
 UPDATE a single entitiy.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
 
     var isSuccess = connection.Update(new Invoice { InvoiceID = 1, Code = "Update_Single_1"});
 }
-{% endhighlight %}
+```
 
 ## Example - Update Many
 UPDATE many entities.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -41,4 +41,4 @@ using (var connection = My.ConnectionFactory())
 
     var isSuccess = connection.Update(list);
 }
-{% endhighlight %}
+```

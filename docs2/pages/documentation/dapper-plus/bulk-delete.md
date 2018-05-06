@@ -15,31 +15,31 @@ DELETE entities using Bulk Operation.
 ## Example - Delete Single
 DELETE a single entity with Bulk Operation.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
 
     connection.BulkDelete(invoice);
 }
-{% endhighlight %}
+```
 
 ## Example - Delete Many
 DELETE many entities with Bulk Operation.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
 
     connection.BulkDelete(invoices);
 }
-{% endhighlight %}
+```
 
 ## Example - Delete with relation (One to One)
 DELETE entities with a one to one relation with Bulk Operation.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -47,12 +47,12 @@ using (var connection = My.ConnectionFactory())
 	connection.BulkDelete(invoices.Select(x => x.Detail))
 		.BulkDelete(invoices);
 }
-{% endhighlight %}
+```
 
 ## Example - Delete with relation (One to Many)
 DELETE entities with a one to many relation with Bulk Operation.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -60,4 +60,4 @@ using (var connection = My.ConnectionFactory())
 	connection.BulkDelete(invoices.SelectMany(x => x.Items))
 		.BulkDelete(invoices);
 }
-{% endhighlight %}
+```

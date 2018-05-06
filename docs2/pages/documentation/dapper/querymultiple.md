@@ -9,7 +9,7 @@ permalink: querymultiple
 ## Description
 QueryMultiple method is an extension method which can be called from any object of type IDbConnection. It can execute multiple queries within the same command and map results.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "SELECT * FROM Invoice WHERE InvoiceID = @@InvoiceID; SELECT * FROM InvoiceItem WHERE InvoiceID = @@InvoiceID;";
 
 using (var connection = My.ConnectionFactory())
@@ -22,7 +22,7 @@ using (var connection = My.ConnectionFactory())
         var invoiceItems = multi.Read<InvoiceItem>().ToList();
     }
 }
-{% endhighlight %}
+```
 ### Parameters
 The following table shows different parameter of an QueryMultiple method.
 

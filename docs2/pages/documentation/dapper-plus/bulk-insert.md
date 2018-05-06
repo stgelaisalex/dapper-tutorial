@@ -15,31 +15,31 @@ INSERT entities using Bulk Operation.
 ## Example - Insert Single
 INSERT a single entity with Bulk Operation.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
     
     connection.BulkInsert(invoice);
 }
-{% endhighlight %}
+```
 
 ## Example - Insert Many
 INSERT many entities with Bulk Operation.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
 
     connection.BulkInsert(invoices);
 }
-{% endhighlight %}
+```
 
 ## Example - Insert with relation (One to One)
 INSERT entities with a one to one relation with Bulk Operation.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -48,12 +48,12 @@ using (var connection = My.ConnectionFactory())
 		.ThenForEach(x => x.Detail.InvoiceID = x.InvoiceID)
 		.ThenBulkInsert(x => x.Detail);
 }
-{% endhighlight %}
+```
 
 ## Example - Insert with relation (One to Many)
 INSERT entities with a one to many relation with Bulk Operation.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -62,4 +62,4 @@ using (var connection = My.ConnectionFactory())
 		.ThenForEach(x => x.Items.ForEach(y => y.InvoiceID = x.InvoiceID))
 		.ThenBulkInsert(x => x.Items);
 }
-{% endhighlight %}
+```

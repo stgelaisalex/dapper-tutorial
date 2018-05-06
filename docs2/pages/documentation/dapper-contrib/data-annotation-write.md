@@ -9,7 +9,7 @@ permalink: data-annotation-write
 ## Description
 Specifie if the property is writable or not.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 [Table("Invoice")]
 public class InvoiceContrib
 {
@@ -32,4 +32,4 @@ using (var connection = My.ConnectionFactory())
 
 	// The FakeProperty is null
 }
-{% endhighlight %}
+```

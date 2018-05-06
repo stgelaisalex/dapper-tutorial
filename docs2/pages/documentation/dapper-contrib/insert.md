@@ -15,19 +15,19 @@ INSERT a single or many entities.
 ## Example - Insert Single
 INSERT a single entitiy.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
 
     var identity = connection.Insert(new InvoiceContrib {Kind = InvoiceKind.WebInvoice, Code = "Insert_Single_1"});
 }
-{% endhighlight %}
+```
 
 ## Example - Insert Many
 INSERT many entities.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -41,4 +41,4 @@ using (var connection = My.ConnectionFactory())
 
     var identity = connection.Insert(list);
 }
-{% endhighlight %}
+```

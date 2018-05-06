@@ -38,7 +38,7 @@ Be careful to use the right method. First & Single methods are very different.
 ## Example - Query Anonymous
 Execute a query and map the first result to a dynamic list, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @@OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -49,13 +49,13 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 	Console.WriteLine(orderDetail);
 }
-{% endhighlight %}
+```
 {% include component-try-it.html href='https://dotnetfiddle.net/nYmbCo' %}
 
 ## Example - Query Strongly Typed
 Execute a query and map the first result to a strongly typed list, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @@OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -66,5 +66,5 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 	Console.WriteLine(orderDetail.OrderDetailID);
 }
-{% endhighlight %}
+```
 {% include component-try-it.html href='https://dotnetfiddle.net/kFMKnL' %}

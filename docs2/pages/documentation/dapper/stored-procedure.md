@@ -12,7 +12,7 @@ Using Stored Procedure in Dapper is very easy, you simply need to specify the co
 ### Execute Single
 Execute a Stored Procedure a single time.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 var sql = "Invoice_Insert";
 
 using (var connection = My.ConnectionFactory())
@@ -25,12 +25,12 @@ using (var connection = My.ConnectionFactory())
 
 	My.Result.Show(affectedRows);
 }
-{% endhighlight %}
+```
 
 ### Execute Many
 Execute a Stored Procedure multiple times.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 var sql = "Invoice_Insert";
 
 using (var connection = My.ConnectionFactory())
@@ -49,4 +49,4 @@ using (var connection = My.ConnectionFactory())
 
 	My.Result.Show(affectedRows);
 }
-{% endhighlight %}
+```

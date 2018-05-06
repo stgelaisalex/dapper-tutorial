@@ -13,7 +13,7 @@ Dapper support the transaction and TransactionScope
 
 Begin a new transaction from the connection and pass it in the transaction optional parameter.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "INSERT INTO Customers (CustomerName) Values (@@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -29,14 +29,14 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 		Console.WriteLine(affectedRows);
 	}
 }
-{% endhighlight %}
+```
 {% include component-try-it.html href='https://dotnetfiddle.net/RlZRFz' %}
 
 ## TransactionScope
 
 Begin a new transaction scope before starting the connection
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 // using System.Transactions;
 
 using (var transaction = new TransactionScope())
@@ -54,4 +54,4 @@ using (var transaction = new TransactionScope())
 
 	transaction.Complete();
 }
-{% endhighlight %}
+```

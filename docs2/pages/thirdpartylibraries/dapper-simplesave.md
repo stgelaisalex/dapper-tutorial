@@ -22,7 +22,7 @@ Dapper.SimpleSave need to decorate your domain classes with attribute, for examp
 - Which property represent primary key columns. 
 - The cardinality of relationships between tables etc.
 
-{% highlight csharp %}
+```csharp
 
 [Table("Invoices")]
 public class Invoice
@@ -39,16 +39,16 @@ public class Invoice
     public InvoiceDetail Detail { get; set; }
 }
 
-{% endhighlight %}
+```
 
 ### Installation
 
 Dapper.SimpleSave is only available through NuGet: <a href="https://www.nuget.org/packages/Dapper.SimpleSave/" target="_blank">https://www.nuget.org/packages/Dapper.SimpleSave/</a>
 
 You can easily install this library by running the following command:
-{% highlight csharp %}
+```csharp
 PM> Install-Package Dapper.SimpleSave 
-{% endhighlight %}
+```
 
 More information can be found at: <a href="https://github.com/Paymentsense/Dapper.SimpleSave/" target="_blank">https://github.com/Paymentsense/Dapper.SimpleSave/</a>
 
@@ -67,7 +67,7 @@ Once you installed this library then the following extension methods will automa
 
 You can use these extension methods easily in your code.
 
-{% highlight csharp %}
+```csharp
 
 connection.Create(invoice);
 
@@ -77,7 +77,7 @@ connection.Delete(invoice);
 
 connection.SoftDelete(invoice);
 
-{% endhighlight %}
+```
 
 You can find the detailed documentation here: <a href="https://github.com/Paymentsense/Dapper.SimpleSave/wiki/" target="_blank">https://github.com/Paymentsense/Dapper.SimpleSave/wiki/</a>
 

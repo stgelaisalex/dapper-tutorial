@@ -23,14 +23,14 @@ Dapper Contrib extend your IDbConnection interface with additional CRUD methods:
 - [Delete](/delete)
 - [DeleteAll](/deleteall)
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 var invoice = connection.Get<InvoiceContrib>(1);
 var invoices = connection.GetAll<InvoiceContrib>().ToList();
 var identity = connection.Insert(new InvoiceContrib {Kind = InvoiceKind.WebInvoice, Code = "Insert_Single_1"});
 var isSuccess = connection.Update(new InvoiceContrib {InvoiceID = 1, Code = "Update_Single_1"});
 var isSuccess = connection.Delete(new InvoiceContrib {InvoiceID = 1});
 var isSuccess = connection.DeleteAll<InvoiceContrib>();
-{% endhighlight %}
+```
 
 
 ## Data Annotations
@@ -42,7 +42,7 @@ Dapper Contrib allow mapping using Data Annotations:
 - [Write](data-annotation-write)
 - [Computed](data-annotation-computed)
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 [Table("Invoice")]
 public class InvoiceContrib
 {
@@ -65,4 +65,4 @@ public class InvoiceDetailContrib
 
 	public string Detail { get; set; }
 }
-{% endhighlight %}
+```

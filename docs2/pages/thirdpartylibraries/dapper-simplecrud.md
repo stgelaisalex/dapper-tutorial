@@ -21,9 +21,9 @@ Dapper.SimpleCRUD is a small library package which adds basic CRUD operations to
 Dapper Extensions is only available through NuGet: <a href="https://www.nuget.org/packages/Dapper.SimpleCRUD/" target="_blank">https://www.nuget.org/packages/Dapper.SimpleCRUD/</a>
 
 You can easily install this library by running the following command:
-{% highlight csharp %}
+```csharp
 PM> Install-Package Dapper.SimpleCRUD 
-{% endhighlight %}
+```
 
 More information can be found at: <a href="https://github.com/ericdc1/Dapper.SimpleCRUD/" target="_blank">https://github.com/ericdc1/Dapper.SimpleCRUD/</a>
 
@@ -42,7 +42,7 @@ Once you installed this library, the following extension methods will automatica
 
 You can use these extension methods easily in your code.
 
-{% highlight csharp %}
+```csharp
 
 var invoice = connection.Get<Invoice>(1);
 
@@ -65,7 +65,7 @@ var status = connection.Delete(invoice);
 
 var count = connection.RecordCount<Invoice>("where Code like '%Invoice%'");
 
-{% endhighlight %}
+```
 
 You can find more information and documentation here: <a href="https://github.com/ericdc1/Dapper.SimpleCRUD/" target="_blank">https://github.com/ericdc1/Dapper.SimpleCRUD</a>
 

@@ -9,7 +9,7 @@ permalink: data-annotation-computed
 ## Description
 Specifie the property should be excluded from update.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 [Table("Invoice")]
 public class InvoiceContrib
 {
@@ -35,4 +35,4 @@ using (var connection = My.ConnectionFactory())
 
 	var isSuccess = connection.Update(invoices);
 }
-{% endhighlight %}
+```

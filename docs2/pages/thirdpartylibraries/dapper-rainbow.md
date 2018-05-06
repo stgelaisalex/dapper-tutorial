@@ -25,9 +25,9 @@ Dapper.Rainbow is a wrapper for database interactions and will create SQL based 
 Dapper.Rainbow is available through NuGet: <a href="https://www.nuget.org/packages/Dapper.Rainbow/" target="_blank">https://www.nuget.org/packages/Dapper.Rainbow/</a>
 
 You can easily install this library by running the following command:
-{% highlight csharp %}
+```csharp
 PM> Install-Package Dapper.Rainbow
-{% endhighlight %}
+```
 
 More information and documentation can be found at: <a href="https://github.com/StackExchange/Dapper/tree/master/Dapper.Contrib">https://github.com/StackExchange/Dapper/tree/master/Dapper.Contrib</a>
 
@@ -35,18 +35,18 @@ More information and documentation can be found at: <a href="https://github.com/
 
 Once you installed this library, you will need to create a new class and derived from the Database<T> class which will work as a container for all the tables.
 
-{% highlight csharp %}
+```csharp
 
 class MyDatabase : Database<MyDatabase>
 {
     public Table<Invoice> Invoices { get; set; }
 }
 
-{% endhighlight %}
+```
 
 You can now use CRUD methods easily in your code.
 
-{% highlight csharp %}
+```csharp
 
 using (var connection = My.ConnectionFactory())
 {
@@ -67,7 +67,7 @@ using (var connection = My.ConnectionFactory())
     var invoices = db.Invoices.All();
 }
 
-{% endhighlight %}
+```
 
 Unfortunately, there is no proper documentation available for this library.
 

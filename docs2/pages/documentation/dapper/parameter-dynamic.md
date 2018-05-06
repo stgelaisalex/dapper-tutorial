@@ -12,7 +12,7 @@ Create and use a parameter in a Dapper method.
 ### Single
 Execute a single time a SQL Command.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 var sql = "EXEC Invoice_Insert";
 
 using (var connection = My.ConnectionFactory())
@@ -31,12 +31,12 @@ using (var connection = My.ConnectionFactory())
 
 	int rowCount = parameter.Get<int>("@@RowCount");
 }
-{% endhighlight %}
+```
 
 ### Many
 Execute many times a SQL Command
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 var sql = "EXEC Invoice_Insert";
 
 var parameters = new List<DynamicParameters>();
@@ -62,4 +62,4 @@ using (var connection = My.ConnectionFactory())
 
 	var rowCount = parameters.Sum(x => x.Get<int>("@@RowCount"));
 }
-{% endhighlight %}
+```

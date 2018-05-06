@@ -17,9 +17,9 @@ DapperExtensions is a small library package which adds basic CRUD operations to 
 DapperExtensions is only available through NuGet: <a href="http://nuget.org/List/Packages/DapperExtensions" target="_blank">http://nuget.org/List/Packages/DapperExtensions</a>
 
 You can easily install this library by running the following command:
-{% highlight csharp %}
+```csharp
 PM> Install-Package DapperExtensions 
-{% endhighlight %}
+```
 
 More information can be found at: <a href="https://github.com/tmsmith/Dapper-Extensions" target="_blank">https://github.com/tmsmith/Dapper-Extensions</a>
 
@@ -36,7 +36,7 @@ Once you installed this library then the following extension methods will automa
 
 You can use these extension methods easily in your code.
 
-{% highlight csharp %}
+```csharp
 
 var invoice = connection.Get<Invoice>(1);
 var invoiceList = connection.GetList<Invoice>();
@@ -53,7 +53,7 @@ var predicate = Predicates.Field<Invoice>(i => i.Kind, Operator.Eq, InvoiceKind.
 
 var count = connection.Count<Invoice>(predicate);
 
-{% endhighlight %}
+```
 
 Unfortunately, there is no proper documentation available for this library.
 

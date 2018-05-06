@@ -15,31 +15,31 @@ MERGE entities using Bulk Operation.
 ## Example - Merge Single
 MERGE a single entity with Bulk Operation.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
 
     connection.BulkMerge(invoice);
 }
-{% endhighlight %}
+```
 
 ## Example - Merge Many
 MERGE many entities with Bulk Operation.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
 
     connection.BulkMerge(invoices);
 }
-{% endhighlight %}
+```
 
 ## Example - Merge with relation (One to One)
 MERGE entities with a one to one relation with Bulk Operation.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -48,12 +48,12 @@ using (var connection = My.ConnectionFactory())
 		.ThenForEach(x => x.Detail.InvoiceID = x.InvoiceID)
 		.ThenBulkMerge(x => x.Detail);
 }
-{% endhighlight %}
+```
 
 ## Example - Merge with relation (One to Many)
 MERGE entities with a one to many relation with Bulk Operation.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -62,4 +62,4 @@ using (var connection = My.ConnectionFactory())
 		.ThenForEach(x => x.Items.ForEach(y => y.InvoiceID = x.InvoiceID))
 		.ThenBulkMerge(x => x.Items);
 }
-{% endhighlight %}
+```

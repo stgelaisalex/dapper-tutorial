@@ -30,7 +30,7 @@ The following table shows different parameter of an Execute method.
 Execute the Stored Procedure a single time.
 
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "Invoice_Insert";
 
 using (var connection = My.ConnectionFactory())
@@ -43,7 +43,7 @@ using (var connection = My.ConnectionFactory())
 
     My.Result.Show(affectedRows);
 }
-{% endhighlight %}
+```
 
 <img src="images/3-anonynous-entity.png" alt="Stored Procedure Single" />
 
@@ -51,7 +51,7 @@ using (var connection = My.ConnectionFactory())
 Execute the Stored Procedure multiple times. Once for every object in the array list.
 
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "Invoice_Insert";
 
 using (var connection = My.ConnectionFactory())
@@ -70,7 +70,7 @@ using (var connection = My.ConnectionFactory())
 
     My.Result.Show(affectedRows);
 }
-{% endhighlight %}
+```
 
 ## Example - Execute INSERT
 
@@ -78,7 +78,7 @@ using (var connection = My.ConnectionFactory())
 Execute the INSERT Statement a single time.
 
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "INSERT INTO Customers (CustomerName) Values (@@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -86,7 +86,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 	connection.Open();
 	var affectedRows = connection.Execute(sql, new {CustomerName = "Mark"});
 }
-{% endhighlight %}
+```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/P2uw27' %}
 
@@ -94,7 +94,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 Execute the INSERT Statement multiple times. Once for every object in the array list.
 
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "INSERT INTO Customers (CustomerName) Values (@@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -110,7 +110,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
  		}
 	);	
 }
-{% endhighlight %}
+```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/vHOVx6' %}
 
@@ -120,7 +120,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 Execute the UPDATE Statement a single time.
 
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "UPDATE Categories SET Description = @@Description WHERE CategoryID = @@CategoryID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -131,7 +131,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 	Console.WriteLine(affectedRows);
 }
-{% endhighlight %}
+```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/CWdH6z' %}
 
@@ -139,7 +139,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 Execute the UPDATE Statement multiple times. Once for every object in the array list.
 
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "UPDATE Categories SET Description = @@Description WHERE CategoryID = @@CategoryID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -157,7 +157,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 	Console.WriteLine(affectedRows);
 	
 }
-{% endhighlight %}
+```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/qCdKI3' %}
 
@@ -167,7 +167,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 Execute the DELETE Statement a single time.
 
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "DELETE FROM Customers WHERE CustomerID = @@CustomerID";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -178,7 +178,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 	Console.WriteLine(affectedRows);
 }
-{% endhighlight %}
+```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/4bFT32' %}
 
@@ -186,7 +186,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 Execute the DELETE Statement multiple times. Once for every object in the array list.
 
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "DELETE FROM OrderDetails WHERE OrderDetailID = @@OrderDetailID";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -204,6 +204,6 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 	Console.WriteLine(affectedRows);
 }
-{% endhighlight %}
+```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/nxP1vL' %}

@@ -17,9 +17,9 @@ Dapper.FluentMap is a small library which allows you to fluently map properties 
 Dapper.FluentMap is available through NuGet: <a href="https://www.nuget.org/packages/Dapper.FluentMap/" target="_blank">https://www.nuget.org/packages/Dapper.FluentMap/</a>
 
 You can easily install this library by running the following command:
-{% highlight csharp %}
+```csharp
 PM> Install-Package Dapper.FluentMap
-{% endhighlight %}
+```
 
 ### APIs
 
@@ -30,7 +30,7 @@ There are two types of mapping supported in Dapper.FluentMap
 
 You can map property names manually using the EntityMap<TEntity> class.
 
-{% highlight csharp %}
+```csharp
 
 public class InvoiceMap : EntityMap<Invoice>
 {
@@ -45,18 +45,18 @@ public class InvoiceMap : EntityMap<Invoice>
     }
 }
 
-{% endhighlight %}
+```
 
 Initialize your mapping at the start of your application.
 
-{% highlight csharp %}
+```csharp
 
 FluentMapper.Initialize(config =>
 {
     config.AddMap(new InvoiceMap());
 });
 
-{% endhighlight %}
+```
 
 Unfortunately, there is no proper documentation available for this library, but you can get a little bit of help from: <a href="https://github.com/henkmollema/Dapper-FluentMap" target="_blank">https://github.com/henkmollema/Dapper-FluentMap</a>
 

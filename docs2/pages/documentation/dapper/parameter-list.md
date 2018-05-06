@@ -9,7 +9,7 @@ permalink: parameter-list
 ## Description
 Dapper allow you to specify multiple parameter on a IN clause by using a list.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 var sql = "SELECT * FROM Invoice WHERE Kind IN @@Kind;";
 
 using (var connection = My.ConnectionFactory())
@@ -19,4 +19,4 @@ using (var connection = My.ConnectionFactory())
 	var invoices = connection.Query<Invoice>(sql, new {Kind = new[] {InvoiceKind.StoreInvoice, InvoiceKind.WebInvoice}}).ToList();
 }
 
-{% endhighlight %}
+```

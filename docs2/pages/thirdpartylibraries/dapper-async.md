@@ -19,9 +19,9 @@ To allow asynchronous database queries, dapper has also added a set of QueryAsyn
 Dapper-Async is only available through NuGet: <a href="https://www.nuget.org/packages/Dapper-Async/" target="_blank">https://www.nuget.org/packages/Dapper-Async/</a>
 
 You can easily install this library by running the following command:
-{% highlight csharp %}
+```csharp
 PM> Install-Package Dapper-Async 
-{% endhighlight %}
+```
 
 More information can be found at: <a href="https://github.com/StackExchange/Dapper" target="_blank">https://github.com/StackExchange/Dapper</a>
 
@@ -39,7 +39,7 @@ Once you installed this library then it will extend your IDbConnection interface
 
 You can use these extension methods easily in your code.
 
-{% highlight csharp %}
+```csharp
 
 var affectedRows = connection.ExecuteAsync(sql,
         new {Kind = InvoiceKind.WebInvoice, Code = "Single_Insert_1"},
@@ -62,7 +62,7 @@ using (var multi = connection.QueryMultipleAsync(sql, new { InvoiceID = 1 }).Res
     var invoiceItems = multi.Read<InvoiceItem>().ToList();
 }
 
-{% endhighlight %}
+```
 
 Unfortunately, there is no proper documentation available for this library, but you can find examples here: <a href="http://dapper-tutorial.net/async" target="_blank">http://dapper-tutorial.net/async</a>
 

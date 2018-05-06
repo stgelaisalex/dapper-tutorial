@@ -24,9 +24,9 @@ Using this library, you can perform saving operations in the **fastest way**. It
 Dapper.Plus is only available through NuGet: <a href="https://www.nuget.org/packages/Z.Dapper.Plus/" target="_blank">https://www.nuget.org/packages/Z.Dapper.Plus/</a>
 
 You can easily install this library by running the following command:
-{% highlight csharp %}
+```csharp
 PM> Install-Package Z.Dapper.Plus
-{% endhighlight %}
+```
 
 ### PRO Version
 
@@ -58,7 +58,7 @@ Once you installed this library then the following extension methods will automa
 
 There is no configuration required and no need for extra coding. You can easily use these extension methods in your code.
 
-{% highlight csharp %}
+```csharp
 
 // Bulk Insert
 connection.BulkInsert(invoices)
@@ -77,7 +77,7 @@ connection.BulkMerge(invoices)
 	.ThenForEach(x => x.Items.ForEach(y => y.InvoiceID = x.InvoiceID))
 	.ThenBulkMerge(x => x.Items);
 
-{% endhighlight %}
+```
 
 You can find the detailed documentation here: <a href="http://dapper-plus.net/overview" target="_blank">http://dapper-plus.net/overview</a>
 

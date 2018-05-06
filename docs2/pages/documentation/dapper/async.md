@@ -20,7 +20,7 @@ Dapper also extend the IDbConnection interface with Async (asynchronous) methods
 
 ## ExecuteAsync
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "INSERT INTO Customers (CustomerName) Values (@@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -28,11 +28,11 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 	connection.Open();
 	var affectedRows = connection.ExecuteAsync(sql, new {CustomerName = "Mark"}).Result;
 }
-{% endhighlight %}
+```
 {% include component-try-it.html href='https://dotnetfiddle.net/2rVSi0' %}
 
 ## QueryAsync
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "SELECT * FROM OrderDetails";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -43,11 +43,11 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 	Console.WriteLine(orderDetails.Count());
 }
-{% endhighlight %}
+```
 {% include component-try-it.html href='https://dotnetfiddle.net/X79bZI' %}
 
 ## QueryFirstAsync
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @@OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -58,11 +58,11 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 	Console.WriteLine(orderDetail);
 }
-{% endhighlight %}
+```
 {% include component-try-it.html href='https://dotnetfiddle.net/7Jbdcg' %}
 
 ## QueryFirstOrDefaultAsync
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @@OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -73,11 +73,11 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 	Console.WriteLine(orderDetail.Quantity);
 }
-{% endhighlight %}
+```
 {% include component-try-it.html href='https://dotnetfiddle.net/26NWaz' %}
 
 ## QuerySingleAsync
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @@OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -88,11 +88,11 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 	Console.WriteLine(orderDetail.OrderDetailID);
 }
-{% endhighlight %}
+```
 {% include component-try-it.html href='https://dotnetfiddle.net/pmjYFp' %}
 
 ## QuerySingleOrDefaultAsync
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @@OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -103,11 +103,11 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 	Console.WriteLine(orderDetail.OrderDetailID);
 }
-{% endhighlight %}
+```
 {% include component-try-it.html href='https://dotnetfiddle.net/WvbA02' %}
 
 ## QueryMultipleAsync
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 var sql = "SELECT * FROM Invoice; SELECT * FROM InvoiceItem;";
 
 using (var connection = My.ConnectionFactory())
@@ -120,6 +120,6 @@ using (var connection = My.ConnectionFactory())
 		var invoiceItems = multi.Read<InvoiceItem>().ToList();
 	}
 }
-{% endhighlight %}
+```
 
 

@@ -9,7 +9,7 @@ permalink: data-annotation-table
 ## Description
 Specifie the destination table name mapped to the entity.
 
-{% include template-example.html %} {% highlight csharp %}
+```csharp
 [Table("Invoice")]
 public class InvoiceContrib
 {
@@ -30,4 +30,4 @@ using (var connection = My.ConnectionFactory())
 
 	var invoice = connection.Get<InvoiceContrib>(1);
 }
-{% endhighlight %}
+```
