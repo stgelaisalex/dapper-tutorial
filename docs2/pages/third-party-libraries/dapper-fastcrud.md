@@ -1,5 +1,3 @@
-{% include template-h1.html %}
-
 # Dapper.FastCrud
 
 ## Overview
