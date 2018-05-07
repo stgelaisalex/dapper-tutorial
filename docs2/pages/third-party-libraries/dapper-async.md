@@ -1,20 +1,12 @@
----
-layout: default
-title: Third Party Library - Dapper-Async
-permalink: dapper-async
----
+# Dapper-Async
 
-{% include template-h1.html %}
-
-## Dapper-Async
-
-### Overview
+## Overview
 
 Dapper-Async is a small library package which extends the IDbConnection interface with Async (asynchronous) methods. With asynchronous programming, you can enhance the overall responsiveness of your application and also avoid performance bottlenecks. 
 
 To allow asynchronous database queries, dapper has also added a set of QueryAsync methods using .NET Framework 4.5's Task-Based Asynchronous Pattern.
 
-### Installation
+## Installation
 
 Dapper-Async is only available through NuGet: <a href="https://www.nuget.org/packages/Dapper-Async/" target="_blank">https://www.nuget.org/packages/Dapper-Async/</a>
 
@@ -25,7 +17,7 @@ PM> Install-Package Dapper-Async
 
 More information can be found at: <a href="https://github.com/StackExchange/Dapper" target="_blank">https://github.com/StackExchange/Dapper</a>
 
-### APIs
+## APIs
 
 Once you installed this library then it will extend your IDbConnection interface with the following methods:
 
@@ -66,6 +58,6 @@ using (var multi = connection.QueryMultipleAsync(sql, new { InvoiceID = 1 }).Res
 
 Unfortunately, there is no proper documentation available for this library, but you can find examples here: <a href="http://dapper-tutorial.net/async" target="_blank">http://dapper-tutorial.net/async</a>
 
-### Support
+## Support
 
 This library is supported on a regular basis and you will get your answers within next few days. <a href="https://github.com/StackExchange/Dapper/issues">https://github.com/StackExchange/Dapper/issues</a>
