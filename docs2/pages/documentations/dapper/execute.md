@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper - Execute 
-permalink: execute
----
-
-{% include template-h1.html %}
+# Dapper - Execute 
 
 ## Description
 Execute is an extension method which can be called from any object of type IDbConnection. It can execute a command one or multiple times and return the number of affected rows. This method is usually used to execute:

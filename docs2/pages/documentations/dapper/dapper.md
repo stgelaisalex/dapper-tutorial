@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper
-permalink: dapper
----
-
-{% include template-h1.html %}
+# Dapper
 
 ## What's Dapper?
 Dapper is a simple object mapper for .NET and own the title of **King of Micro ORM** in terms of speed and is virtually as fast as using a raw ADO.NET data reader. An ORM is an Object Relational Mapper, which is responsible for mapping between database and programming language.

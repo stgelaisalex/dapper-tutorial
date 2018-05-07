@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper - QueryFirst 
-permalink: queryfirst
----
-
-{% include template-h1.html %}
+# Dapper - QueryFirst 
 
 ## Description
 QueryFirst method is an extension method which can be called from any object of type IDbConnection. It can execute a query and map the first result.

@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper - QuerySingle 
-permalink: querysingle
----
-
-{% include template-h1.html %}
+# Dapper - QuerySingle 
 
 ## Description
 QuerySingle method is an extension method which can be called from any object of type IDbConnection. It can execute a query and map the first result, and throws an exception if there is not exactly one element in the sequence.

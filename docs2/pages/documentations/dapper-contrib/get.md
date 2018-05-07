@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper Contrib - Get
-permalink: get
----
-
-{% include template-h1.html %}
+# Dapper Contrib - Get
 
 ## Description
 Get a single entity by ID.

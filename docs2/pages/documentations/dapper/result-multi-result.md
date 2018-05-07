@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper - Result Multi-Result 
-permalink: result-multi-result
----
-
-{% include template-h1.html %}
+# Dapper - Result Multi-Result 
 
 ## Description
 QueryMultiple method is an extension method which can be called from any object of type IDbConnection. It can execute multiple queries within the same command and map results.

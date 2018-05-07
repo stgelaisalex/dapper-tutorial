@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper Plus
-permalink: dapper-plus
----
-
-{% include template-h1.html %}
+# Dapper Plus
 
 ## What's Dapper Plus?
 Dapper Plus extend the IDbConnection interface with Bulk Operations methods:
@@ -61,4 +55,3 @@ connection.BulkMerge(invoices)
 	.ThenBulkMerge(x => x.Items);
   
 ```
-

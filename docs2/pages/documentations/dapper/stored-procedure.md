@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper - Stored Procedure 
-permalink: stored-procedure
----
-
-{% include template-h1.html %}
+# Dapper - Stored Procedure 
 
 ## Description
 Using Stored Procedure in Dapper is very easy, you simply need to specify the command type

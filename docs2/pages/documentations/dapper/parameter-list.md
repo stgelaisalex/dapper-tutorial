@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper - Parameter List 
-permalink: parameter-list
----
-
-{% include template-h1.html %}
+#Dapper - Parameter List 
 
 ## Description
 Dapper allow you to specify multiple parameter on a IN clause by using a list.

@@ -1,19 +1,9 @@
----
-layout: default
-title: Third Party Library - Dapper.FluentMap
-permalink: dapper-fluentmap
----
+# Dapper.FluentMap
 
-{% include template-h1.html %}
-
-## Dapper.FluentMap
-
-### Overview
-
+## Overview
 Dapper.FluentMap is a small library which allows you to fluently map properties of your domain classes to the database columns. This library functionality is similar to Entity Framework Fluent API and keeps your domain classes clean of mapping attributes.
 
-### Installation
-
+## Installation
 Dapper.FluentMap is available through NuGet: <a href="https://www.nuget.org/packages/Dapper.FluentMap/" target="_blank">https://www.nuget.org/packages/Dapper.FluentMap/</a>
 
 You can easily install this library by running the following command:
@@ -21,8 +11,7 @@ You can easily install this library by running the following command:
 PM> Install-Package Dapper.FluentMap
 ```
 
-### APIs
-
+## APIs
 There are two types of mapping supported in Dapper.FluentMap
 
 - Manual mapping
@@ -60,8 +49,7 @@ FluentMapper.Initialize(config =>
 
 Unfortunately, there is no proper documentation available for this library, but you can get a little bit of help from: <a href="https://github.com/henkmollema/Dapper-FluentMap" target="_blank">https://github.com/henkmollema/Dapper-FluentMap</a>
 
-### Support
-
+## Support
 This library is supported, and you will get your answers within next few days. 
 
 - henkmollema@gmail.com

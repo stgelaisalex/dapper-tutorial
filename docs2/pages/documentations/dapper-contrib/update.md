@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper Contrib - Update
-permalink: update
----
-
-{% include template-h1.html %}
+# Dapper Contrib - Update
 
 ## Description
 UPDATE a single or many entities.

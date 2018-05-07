@@ -1,17 +1,7 @@
----
-layout: default
-title: Dapper - Third Party Library
-permalink: third-party-library
----
-
-{% include template-h1.html %}
-
-## Introduction
-
+# Dapper - Third Party Library
 Dapper Third Party Library allow you to extend dapper functionality which is not available in the core Dapper library, for example, basic CRUD operations, multi-mapping, manual mapping and convention based mapping, etc.
 
-### Why Third Party Library?
-
+## Why Third Party Library?
 Dapper is a King of Micro ORM in terms of performance, but a lot of essential features is missing for some application scenarios.
 
 The only way to achieve is either create code for this kind of scenario or use a library which fully or partially cover them.
@@ -28,11 +18,3 @@ The only way to achieve is either create code for this kind of scenario or use a
 | [Dapper.Rainbow](dapper-rainbow) | Free | 2 - 3 Days | No | Get<br>Insert<br>Update<br>Delete<br>All |
 | [Dapper.SimpleCRUD](dapper-simplecrud) | Free | 1 - 3 Days | [Yes](https://github.com/ericdc1/Dapper.SimpleCRUD) | Get<br>GetList<br>GetListPaged<br>Insert<br>Update<br>Delete<br>DeleteList<br>RecordCount |
 | [Dapper.SimpleSave](dapper-simplesave) | Free | No | [Yes](https://github.com/Paymentsense/Dapper.SimpleSave/wiki/) | Create<br>CreateAll<br>Update<br>UpdateAll<br>Delete<br>DeleteAll<br>SoftDelete<br>SoftDeleteAll |
-
-
-
-
-
-
-
-

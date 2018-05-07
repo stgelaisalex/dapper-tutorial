@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper Contrib - Data Annotation - Table
-permalink: data-annotation-table
----
-
-{% include template-h1.html %}
+# Dapper Contrib - Data Annotation - Table
 
 ## Description
 Specifie the destination table name mapped to the entity.

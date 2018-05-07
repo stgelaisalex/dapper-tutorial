@@ -1,11 +1,4 @@
----
-layout: default
-title: Dapper Contrib
-permalink: dapper-contrib
----
-
-{% include template-h1.html %}
-
+# Dapper Contrib
 
 ## What's Dapper Contrib?
 Dapper Contrib extend the IDbConnection interface with additional CRUD methods.

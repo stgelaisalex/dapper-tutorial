@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper - Result Multi-Mapping 
-permalink: result-multi-mapping
----
-
-{% include template-h1.html %}
+#Dapper - Result Multi-Mapping 
 
 ## Description
 Extension methods can be used to execute a query and map the result to a strongly typed list with relations.

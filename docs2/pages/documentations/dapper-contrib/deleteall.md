@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper Contrib - DeleteAll
-permalink: deleteall
----
-
-{% include template-h1.html %}
+# Dapper Contrib - DeleteAll
 
 ## Description
 DELETE ALL entities.

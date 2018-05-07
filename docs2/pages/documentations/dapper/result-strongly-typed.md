@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper - Result Strongly Typed 
-permalink: result-strongly-typed
----
-
-{% include template-h1.html %}
+# Dapper - Result Strongly Typed 
 
 ## Description
 Extension methods can be used to execute a query and map the result using strongly typed.
@@ -18,6 +12,7 @@ The anonymous result can be mapped from following methods:
 - [QuerySingleOrDefault](#example---querysingleordefault)
 
 These extension methods can be called from any object of type IDbConnection.
+
 ## Example - Query
 Query method can execute a query and map the result to a strongly typed list.
 

@@ -55,5 +55,4 @@ using (var multi = connection.QueryMultipleAsync(sql, new { InvoiceID = 1 }).Res
 Unfortunately, there is no proper documentation available for this library, but you can find examples here: <a href="http://dapper-tutorial.net/async" target="_blank">http://dapper-tutorial.net/async</a>
 
 ## Support
-
 This library is supported on a regular basis and you will get your answers within next few days. <a href="https://github.com/StackExchange/Dapper/issues">https://github.com/StackExchange/Dapper/issues</a>

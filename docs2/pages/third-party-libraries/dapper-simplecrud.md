@@ -1,34 +1,24 @@
----
-layout: default
-title: Third Party Library - Dapper.SimpleCRUD
-permalink: dapper-simplecrud
----
+# Dapper.SimpleCRUD
 
-{% include template-h1.html %}
-
-## Dapper.SimpleCRUD
-
-### Overview
-
+## Overview
 Dapper.SimpleCRUD is a small library package which adds basic CRUD operations to Dapper. Dapper.SimpleCRUD uses smart defaults without using attributes is your classes, but it can also be overridden as needed.
 
 - The id column is used as a primary key by default, but you can override it with an attribute.
 - By default, queries expect that table name is matching the class name, but you can override it with an attribute.
 - Similarly, queries expect that column name is matching the property name, but you can also override it with an attribute.
 
-### Installation
-
+## Installation
 Dapper Extensions is only available through NuGet: <a href="https://www.nuget.org/packages/Dapper.SimpleCRUD/" target="_blank">https://www.nuget.org/packages/Dapper.SimpleCRUD/</a>
 
 You can easily install this library by running the following command:
+
 ```csharp
 PM> Install-Package Dapper.SimpleCRUD 
 ```
 
 More information can be found at: <a href="https://github.com/ericdc1/Dapper.SimpleCRUD/" target="_blank">https://github.com/ericdc1/Dapper.SimpleCRUD/</a>
 
-### APIs
-
+## APIs
 Once you installed this library, the following extension methods will automatically add to DbConnection:
 
 - Get
@@ -43,7 +33,6 @@ Once you installed this library, the following extension methods will automatica
 You can use these extension methods easily in your code.
 
 ```csharp
-
 var invoice = connection.Get<Invoice>(1);
 
 var invoiceList = connection.GetList<Invoice>();
@@ -64,11 +53,9 @@ invoice = connection.Get<Invoice>(invoiceId);
 var status = connection.Delete(invoice);
 
 var count = connection.RecordCount<Invoice>("where Code like '%Invoice%'");
-
 ```
 
 You can find more information and documentation here: <a href="https://github.com/ericdc1/Dapper.SimpleCRUD/" target="_blank">https://github.com/ericdc1/Dapper.SimpleCRUD</a>
 
-### Support
-
+## Support
 This library is supported on a regular basis and you will get your answers within next few days. <a href="https://github.com/ericdc1/Dapper.SimpleCRUD/issues/">https://github.com/ericdc1/Dapper.SimpleCRUD/issues</a>

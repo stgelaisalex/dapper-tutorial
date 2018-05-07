@@ -1,10 +1,6 @@
----
-layout: default
-title: Dapper Plus - Bulk Update
-permalink: bulk-update
----
+#Dapper Plus - Bulk Update
 
-{% include template-h1.html %}
+## Description
 UPDATE entities using Bulk Operation.
 
 - [Update single](#example---update-single)

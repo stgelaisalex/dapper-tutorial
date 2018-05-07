@@ -1,10 +1,6 @@
----
-layout: default
-title: Dapper Plus - Bulk Merge
-permalink: bulk-merge
----
+# Dapper Plus - Bulk Merge
 
-{% include template-h1.html %}
+## Description
 MERGE entities using Bulk Operation.
 
 - [Merge single](#example---merge-single)

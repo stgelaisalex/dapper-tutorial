@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper - QueryFirstOrDefault
-permalink: queryfirstordefault
----
-
-{% include template-h1.html %}
+# Dapper - QueryFirstOrDefault
 
 ## Description
 QueryFirstOrDefault method is an extension method which can be called from any object of type IDbConnection. It can execute a query and map the first result, or a default value if the sequence contains no elements.
@@ -70,4 +64,3 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/2WQ7sc' %}
-

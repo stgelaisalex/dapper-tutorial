@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper - Async
-permalink: async
----
-
-{% include template-h1.html %}
+# Dapper - Async
 
 ## Description
 Dapper also extend the IDbConnection interface with Async (asynchronous) methods:
@@ -121,5 +115,3 @@ using (var connection = My.ConnectionFactory())
 	}
 }
 ```
-
-

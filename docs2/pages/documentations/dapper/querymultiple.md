@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper - QueryMultiple 
-permalink: querymultiple
----
-
-{% include template-h1.html %}
+# Dapper - QueryMultiple 
 
 ## Description
 QueryMultiple method is an extension method which can be called from any object of type IDbConnection. It can execute multiple queries within the same command and map results.
@@ -23,6 +17,7 @@ using (var connection = My.ConnectionFactory())
     }
 }
 ```
+
 ### Parameters
 The following table shows different parameter of an QueryMultiple method.
 

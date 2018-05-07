@@ -1,15 +1,6 @@
----
-layout: default
-title: Third Party Library - Dapper.Plus
-permalink: dapper-plus-third-party-library
----
+# Dapper.Plus
 
-{% include template-h1.html %}
-
-## Dapper.Plus
-
-### Overview
-
+## Overview
 Dapper.Plus is a small library that you can add to your project which will extend your IDbConnection and IDbTransaction interfaces with high efficient Bulk operations methods.
 
 - <a href="http://dapper-plus.net/bulk-insert" target="_blank">Bulk Insert</a>
@@ -19,8 +10,7 @@ Dapper.Plus is a small library that you can add to your project which will exten
 
 Using this library, you can perform saving operations in the **fastest way**. It can be used with or without Dapper, and it is also compatible with all others Dapper packages.
 
-### Installation
-
+## Installation
 Dapper.Plus is only available through NuGet: <a href="https://www.nuget.org/packages/Z.Dapper.Plus/" target="_blank">https://www.nuget.org/packages/Z.Dapper.Plus/</a>
 
 You can easily install this library by running the following command:
@@ -28,8 +18,7 @@ You can easily install this library by running the following command:
 PM> Install-Package Z.Dapper.Plus
 ```
 
-### PRO Version
-
+## PRO Version
 Every month, a FREE trial of the PRO version is available to let you evaluate all its features without limitations.
 
 | Features | PRO |
@@ -47,8 +36,7 @@ Every month, a FREE trial of the PRO version is available to let you evaluate al
 
 More information can be found at: <a href="http://dapper-plus.net/" target="_blank">http://dapper-plus.net/</a>
 
-### APIs
-
+## APIs
 Once you installed this library then the following extension methods will automatically add to DbConnection:
 
 - BulkInsert
@@ -59,7 +47,6 @@ Once you installed this library then the following extension methods will automa
 There is no configuration required and no need for extra coding. You can easily use these extension methods in your code.
 
 ```csharp
-
 // Bulk Insert
 connection.BulkInsert(invoices)
 	.ThenForEach(x => x.Items.ForEach(y => y.InvoiceID = x.InvoiceID))
@@ -76,13 +63,11 @@ connection.BulkDelete(invoices.SelectMany(x => x.Items))
 connection.BulkMerge(invoices)
 	.ThenForEach(x => x.Items.ForEach(y => y.InvoiceID = x.InvoiceID))
 	.ThenBulkMerge(x => x.Items);
-
 ```
 
 You can find the detailed documentation here: <a href="http://dapper-plus.net/overview" target="_blank">http://dapper-plus.net/overview</a>
 
-### DB Provider Supported
-
+## DB Provider Supported
 Dapper.Plus is compatible with all major database provider:
 
 - SQL Server 2008+
@@ -93,7 +78,6 @@ Dapper.Plus is compatible with all major database provider:
 - SQLite
 - PostgreSQL
 
-### Support
-
+## Support
 If you have any further queries, contact the outstanding customer support for any request, and you will get your answer within the next business day, hour, or minutes!
 - <a href="mailto:info@zzzprojects.com">info@zzzprojects.com</a>

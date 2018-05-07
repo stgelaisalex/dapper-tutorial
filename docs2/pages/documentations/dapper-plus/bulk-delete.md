@@ -1,10 +1,6 @@
----
-layout: default
-title: Dapper Plus - Bulk Delete
-permalink: bulk-delete
----
+# Dapper Plus - Bulk Delete
 
-{% include template-h1.html %}
+## Description
 DELETE entities using Bulk Operation.
 
 - [Delete single](#example---delete-single)

@@ -1,10 +1,6 @@
----
-layout: default
-title: Dapper Plus - Bulk Insert
-permalink: bulk-insert
----
+# Dapper Plus - Bulk Insert
 
-{% include template-h1.html %}
+## Description
 INSERT entities using Bulk Operation.
 
 - [Insert single](#example---insert-single)

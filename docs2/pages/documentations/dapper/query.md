@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper - Query 
-permalink: query
----
-
-{% include template-h1.html %}
+# Dapper - Query 
 
 ## Description
 Query method is an extension method which can be called from any object of type IDbConnection. It can execute a query and map the result.
@@ -166,4 +160,3 @@ using (var connection = My.ConnectionFactory())
     My.Result.Show(invoices);
 }
 ```
-

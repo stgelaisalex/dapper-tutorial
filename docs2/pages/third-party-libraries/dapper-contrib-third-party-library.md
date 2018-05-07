@@ -1,23 +1,13 @@
----
-layout: default
-title: Third Party Library - Dapper.Contrib
-permalink: dapper-contrib-third-party-library
----
+# Dapper.Contrib
 
-{% include template-h1.html %}
-
-## Dapper.Contrib
-
-### Overview
-
+## Overview
 Dapper.Contrib is a small library that you can add to your project which will extend IDbConnection interface with additional helper methods for CRUD operations, such as inserting, deleting, updating and getting records.
 
 Dapper.Contrib has the ability to track your entities and identify if changes have been made.
 
 If there is any change and you call the Update method, then it will generate the SQL and update only those properties that have been changed.
 
-### Installation
-
+## Installation
 Dapper.Contrib is available through NuGet: <a href="https://www.nuget.org/packages/Dapper.Contrib/" target="_blank">https://www.nuget.org/packages/Dapper.Contrib/</a>
 
 You can easily install this library by running the following command:
@@ -27,8 +17,7 @@ PM> Install-Package Dapper.Contrib
 
 More information and documentation can be found at: <a href="https://github.com/StackExchange/Dapper/tree/master/Dapper.Contrib">https://github.com/StackExchange/Dapper/tree/master/Dapper.Contrib</a>
 
-### APIs
-
+## APIs
 Once you installed this library then the following extension methods will automatically add to DbConnection:
 
 - Get
@@ -41,14 +30,12 @@ Once you installed this library then the following extension methods will automa
 You can use these extension methods easily in your code.
 
 ```csharp
-
 var invoice = connection.Get<InvoiceContrib>(1);
 var invoices = connection.GetAll<InvoiceContrib>().ToList();
 var identity = connection.Insert(new InvoiceContrib {Kind = InvoiceKind.WebInvoice, Code = "Insert_Single_1"});
 var isSuccess = connection.Update(new InvoiceContrib {InvoiceID = 1, Code = "Update_Single_1"});
 var isSuccess = connection.Delete(new InvoiceContrib {InvoiceID = 1});
 var isSuccess = connection.DeleteAll<InvoiceContrib>();
-
 ```
 
 Dapper.Contrib also allow mapping for special attributes using Data Annotations:
@@ -60,7 +47,6 @@ Dapper.Contrib also allow mapping for special attributes using Data Annotations:
 - **Computed**: Specify the property that should be excluded from an update.
 
 ```csharp
-
 [Table("Invoice")]
 public class InvoiceContrib
 {
@@ -85,32 +71,25 @@ using (var connection = My.ConnectionFactory())
 
 	var isSuccess = connection.Update(invoices);
 }
-
 ```
 
 Unfortunately, there is no proper documentation available for this library, but you can get a little bit of help from: <a href="https://github.com/StackExchange/Dapper/tree/master/Dapper.Contrib" target="_blank">https://github.com/StackExchange/Dapper/tree/master/Dapper.Contrib</a>
 
-### Limitations
-
+## Limitations
 There is no support for composite key mapping.
 
 Dapper.Contrib has Update extension method, and SQLiteConnection also exposes an Update event that clashes with each other. But you can easily resolve the clash by using any of the following ways:
 - Pass a type parameter to Update method
 
 ```csharp
-
 var isSuccess = connection.Update<InvoiceContrib>(new InvoiceContrib {InvoiceID = 1, Code = "Update_Single_1"});
-
 ```
 
 - The other way is to call the Update method explicitly using SqlMapperExtensions.
 
 ```csharp
-
 var isSuccess = SqlMapperExtensions.Update(connection, new InvoiceContrib {InvoiceID = 1, Code = "Update_Single_2"});
-
 ```
 
 ### Support
-
 This library is supported on a regular basis and you will get your answers within next few days. <a href="https://github.com/StackExchange/Dapper/issues">https://github.com/StackExchange/Dapper/issues</a>

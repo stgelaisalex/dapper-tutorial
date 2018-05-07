@@ -1,10 +1,4 @@
----
-layout: default
-title: Dapper - Transaction
-permalink: transaction
----
-
-{% include template-h1.html %}
+# Dapper - Transaction
 
 ## Description
 Dapper support the transaction and TransactionScope
