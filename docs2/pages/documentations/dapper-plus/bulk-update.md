@@ -1,4 +1,4 @@
-#Dapper Plus - Bulk Update
+# Dapper Plus - Bulk Update
 
 ## Description
 UPDATE entities using Bulk Operation.
