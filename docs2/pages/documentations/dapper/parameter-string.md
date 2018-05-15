@@ -3,7 +3,7 @@
 ## Description
 
 ```csharp
-var sql = "SELECT * FROM Invoice WHERE Code = @@Code;";
+var sql = "SELECT * FROM Invoice WHERE Code = @Code;";
 
 using (var connection = My.ConnectionFactory())
 {

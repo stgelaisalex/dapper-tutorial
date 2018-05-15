@@ -34,8 +34,8 @@ Dapper will extend your IDbConnection interface with multiple methods:
 
 ```csharp
 string sqlOrderDetails = "SELECT * FROM OrderDetails;";
-string sqlOrderDetail = "SELECT * FROM OrderDetails WHERE OrderDetailID = @@OrderDetailID;";
-string sqlCustomerInsert = "INSERT INTO Customers (CustomerName) Values (@@CustomerName);";
+string sqlOrderDetail = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
+string sqlCustomerInsert = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -65,9 +65,9 @@ var affectedRows = connection.Execute(sql,
 // Dynamic
 DynamicParameters parameter = new DynamicParameters();
 
-parameter.Add("@@Kind", InvoiceKind.WebInvoice, DbType.Int32, ParameterDirection.Input);
-parameter.Add("@@Code", "Many_Insert_0", DbType.String, ParameterDirection.Input);
-parameter.Add("@@RowCount", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
+parameter.Add("@Kind", InvoiceKind.WebInvoice, DbType.Int32, ParameterDirection.Input);
+parameter.Add("@Code", "Many_Insert_0", DbType.String, ParameterDirection.Input);
+parameter.Add("@RowCount", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
 
 connection.Execute(sql,
 new {Kind = InvoiceKind.WebInvoice, Code = "Single_Insert_1"},

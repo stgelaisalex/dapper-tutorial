@@ -15,7 +15,7 @@ Dapper also extend the IDbConnection interface with Async (asynchronous) methods
 ## ExecuteAsync
 
 ```csharp
-string sql = "INSERT INTO Customers (CustomerName) Values (@@CustomerName);";
+string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
@@ -42,7 +42,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 ## QueryFirstAsync
 ```csharp
-string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @@OrderDetailID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
@@ -57,7 +57,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 ## QueryFirstOrDefaultAsync
 ```csharp
-string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @@OrderDetailID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
@@ -72,7 +72,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 ## QuerySingleAsync
 ```csharp
-string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @@OrderDetailID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
@@ -87,7 +87,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 ## QuerySingleOrDefaultAsync
 ```csharp
-string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @@OrderDetailID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {

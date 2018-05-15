@@ -33,7 +33,7 @@ Be careful to use the right method. First & Single methods are very different.
 Execute a query and map the first result to a dynamic list.
 
 ```csharp
-string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @@OrderDetailID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
@@ -51,7 +51,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 Execute a query and map the first result to a strongly typed list.
 
 ```csharp
-string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @@OrderDetailID;";
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {

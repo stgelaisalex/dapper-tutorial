@@ -15,15 +15,15 @@ using (var connection = My.ConnectionFactory())
 
 	DynamicParameters parameter = new DynamicParameters();
 
-	parameter.Add("@@Kind", InvoiceKind.WebInvoice, DbType.Int32, ParameterDirection.Input);
-	parameter.Add("@@Code", "Many_Insert_0", DbType.String, ParameterDirection.Input);
-	parameter.Add("@@RowCount", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
+	parameter.Add("@Kind", InvoiceKind.WebInvoice, DbType.Int32, ParameterDirection.Input);
+	parameter.Add("@Code", "Many_Insert_0", DbType.String, ParameterDirection.Input);
+	parameter.Add("@RowCount", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
 
 	connection.Execute(sql,
 		parameter,
 		commandType: CommandType.StoredProcedure);
 
-	int rowCount = parameter.Get<int>("@@RowCount");
+	int rowCount = parameter.Get<int>("@RowCount");
 }
 ```
 
@@ -38,9 +38,9 @@ var parameters = new List<DynamicParameters>();
 for (var i = 0; i < 3; i++)
 {
 	var p = new DynamicParameters();
-	p.Add("@@Kind", InvoiceKind.WebInvoice, DbType.Int32, ParameterDirection.Input);
-	p.Add("@@Code", "Many_Insert_" + (i + 1), DbType.String, ParameterDirection.Input);
-	p.Add("@@RowCount", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
+	p.Add("@Kind", InvoiceKind.WebInvoice, DbType.Int32, ParameterDirection.Input);
+	p.Add("@Code", "Many_Insert_" + (i + 1), DbType.String, ParameterDirection.Input);
+	p.Add("@RowCount", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
 
 	parameters.Add(p);
 }
@@ -54,6 +54,6 @@ using (var connection = My.ConnectionFactory())
 		commandType: CommandType.StoredProcedure
 	);
 
-	var rowCount = parameters.Sum(x => x.Get<int>("@@RowCount"));
+	var rowCount = parameters.Sum(x => x.Get<int>("@RowCount"));
 }
 ```

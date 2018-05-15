@@ -73,7 +73,7 @@ Execute the INSERT Statement a single time.
 
 
 ```csharp
-string sql = "INSERT INTO Customers (CustomerName) Values (@@CustomerName);";
+string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
@@ -89,7 +89,7 @@ Execute the INSERT Statement multiple times. Once for every object in the array 
 
 
 ```csharp
-string sql = "INSERT INTO Customers (CustomerName) Values (@@CustomerName);";
+string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
@@ -115,7 +115,7 @@ Execute the UPDATE Statement a single time.
 
 
 ```csharp
-string sql = "UPDATE Categories SET Description = @@Description WHERE CategoryID = @@CategoryID;";
+string sql = "UPDATE Categories SET Description = @Description WHERE CategoryID = @CategoryID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
@@ -134,7 +134,7 @@ Execute the UPDATE Statement multiple times. Once for every object in the array 
 
 
 ```csharp
-string sql = "UPDATE Categories SET Description = @@Description WHERE CategoryID = @@CategoryID;";
+string sql = "UPDATE Categories SET Description = @Description WHERE CategoryID = @CategoryID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
@@ -162,7 +162,7 @@ Execute the DELETE Statement a single time.
 
 
 ```csharp
-string sql = "DELETE FROM Customers WHERE CustomerID = @@CustomerID";
+string sql = "DELETE FROM Customers WHERE CustomerID = @CustomerID";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
@@ -181,7 +181,7 @@ Execute the DELETE Statement multiple times. Once for every object in the array 
 
 
 ```csharp
-string sql = "DELETE FROM OrderDetails WHERE OrderDetailID = @@OrderDetailID";
+string sql = "DELETE FROM OrderDetails WHERE OrderDetailID = @OrderDetailID";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
