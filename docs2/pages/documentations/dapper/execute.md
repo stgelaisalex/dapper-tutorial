@@ -39,7 +39,7 @@ using (var connection = My.ConnectionFactory())
 }
 ```
 
-<img src="images/3-anonynous-entity.png" alt="Stored Procedure Single" />
+<img src="https://raw.githubusercontent.com/zzzprojects/dapper-tutorial/master/docs/images/3-anonynous-entity.png" alt="Stored Procedure Single" />
 
 ### Many
 Execute the Stored Procedure multiple times. Once for every object in the array list.
