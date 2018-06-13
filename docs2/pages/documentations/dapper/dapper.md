@@ -70,8 +70,10 @@ parameter.Add("@Code", "Many_Insert_0", DbType.String, ParameterDirection.Input)
 parameter.Add("@RowCount", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
 
 connection.Execute(sql,
-new {Kind = InvoiceKind.WebInvoice, Code = "Single_Insert_1"},
-commandType: CommandType.StoredProcedure);
+	parameter,
+	commandType: CommandType.StoredProcedure);
+
+int rowCount = parameter.Get<int>("@RowCount");
 
 // List
 connection.Query<Invoice>(sql, new {Kind = new[] {InvoiceKind.StoreInvoice, InvoiceKind.WebInvoice}}).ToList();
