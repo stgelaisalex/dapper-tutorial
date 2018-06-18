@@ -37,11 +37,9 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
-	
 	var orderDetail = connection.QuerySingleOrDefault(sql, new {OrderDetailID = 1});
 
-	Console.WriteLine(orderDetail);
+	FiddleHelper.WriteTable(orderDetail);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/nYmbCo' %}
@@ -53,12 +51,10 @@ Execute a query and map the first result to a strongly typed list, or a default 
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
+{			
 	var orderDetail = connection.QuerySingleOrDefault<OrderDetail>(sql, new {OrderDetailID = 1});
 
-	Console.WriteLine(orderDetail.OrderDetailID);
+	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/kFMKnL' %}
