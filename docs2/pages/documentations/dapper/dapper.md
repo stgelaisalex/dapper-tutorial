@@ -33,16 +33,22 @@ Dapper will extend your IDbConnection interface with multiple methods:
 - [QueryMultiple](/querymultiple)
 
 ```csharp
-string sqlOrderDetails = "SELECT * FROM OrderDetails;";
+string sqlOrderDetails = "SELECT TOP 5 * FROM OrderDetails;";
 string sqlOrderDetail = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 string sqlCustomerInsert = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	var orderDetails = connection.Query(sqlOrderDetails).ToList();
-	var orderDetail = connection.QueryFirstOrDefault(sqlOrderDetail, new {OrderDetailID = 1});
+	var orderDetails = connection.Query<OrderDetail>(sqlOrderDetails).ToList();
+	var orderDetail = connection.QueryFirstOrDefault<OrderDetail>(sqlOrderDetail, new {OrderDetailID = 1});
 	var affectedRows = connection.Execute(sqlCustomerInsert,  new {CustomerName = "Mark"});
+
+	Console.WriteLine(orderDetails.Count);
+	Console.WriteLine(affectedRows);
+
+	FiddleHelper.WriteTable(orderDetails);
+	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
 }
 ```
 
@@ -91,12 +97,19 @@ The result returned by queries method can be mapped to multiple types:
 - [Multi-Type](/result-multi-type)
 
 ```csharp
-string sqlOrderDetails = "SELECT * FROM OrderDetails;";
+string sqlOrderDetails = "SELECT TOP 10 * FROM OrderDetails;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-var anonymousList = connection.Query(sqlOrderDetails).ToList();
-var orderDetails = connection.Query<OrderDetail>(sqlOrderDetails).ToList();
+	var anonymousList = connection.Query(sqlOrderDetails).ToList();
+	var orderDetails = connection.Query<OrderDetail>(sqlOrderDetails).ToList();
+
+	Console.WriteLine(anonymousList.Count);
+	Console.WriteLine(orderDetails.Count);
+
+	FiddleHelper.WriteTable(orderDetails);
+
+	FiddleHelper.WriteTable(connection.Query(sqlOrderDetails).FirstOrDefault());
 }
 ```
 
