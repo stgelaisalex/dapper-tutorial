@@ -45,7 +45,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 Raw SQL query can be executed using Query method and map the result to a strongly typed list.
 
 ```csharp
-string sql = "SELECT * FROM OrderDetails";
+string sql = "SELECT TOP 10 * FROM OrderDetails";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {			
