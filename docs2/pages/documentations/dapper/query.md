@@ -48,12 +48,12 @@ Raw SQL query can be executed using Query method and map the result to a strongl
 string sql = "SELECT * FROM OrderDetails";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
+{			
 	var orderDetails = connection.Query<OrderDetail>(sql).ToList();
 
 	Console.WriteLine(orderDetails.Count);
+
+	FiddleHelper.WriteTable(orderDetails);
 }
 ```
 
