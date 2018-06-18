@@ -92,26 +92,26 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 
 	var list = connection.Query<Order, OrderDetail, Order>(
-sql,
-(order, orderDetail) =>
-{
-	Order orderEntry;
-
-	if (!orderDictionary.TryGetValue(order.OrderID, out orderEntry))
+	sql,
+	(order, orderDetail) =>
 	{
-	orderEntry = order;
-	orderEntry.OrderDetails = new List<OrderDetail>();
-	orderDictionary.Add(orderEntry.OrderID, orderEntry);
-	}
+		Order orderEntry;
 
-	orderEntry.OrderDetails.Add(orderDetail);
-	return orderEntry;
-},
-splitOn: "OrderID")
-.Distinct()
-.ToList();
+		if (!orderDictionary.TryGetValue(order.OrderID, out orderEntry))
+		{
+		orderEntry = order;
+		orderEntry.OrderDetails = new List<OrderDetail>();
+		orderDictionary.Add(orderEntry.OrderID, orderEntry);
+		}
 
-Console.WriteLine(list.Count);
+		orderEntry.OrderDetails.Add(orderDetail);
+		return orderEntry;
+	},
+	splitOn: "OrderID")
+	.Distinct()
+	.ToList();
+
+	Console.WriteLine(list.Count);
 
 	FiddleHelper.WriteTable(list);
 	FiddleHelper.WriteTable(list.First().OrderDetails);
