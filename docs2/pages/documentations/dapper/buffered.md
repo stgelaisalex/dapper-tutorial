@@ -14,10 +14,10 @@ string sql = "SELECT * FROM OrderDetails;";
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
 	connection.Open();
-	
+
 	var orderDetails = connection.Query<OrderDetail>(sql, buffered: false).ToList();
 
-	Console.WriteLine(orderDetails.Count());
+	FiddleHelper.WriteTable(orderDetails.Take(10));
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/gLwGJO' %}
