@@ -34,7 +34,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 ## QueryAsync
 ```csharp
-string sql = "SELECT * FROM OrderDetails";
+string sql = "SELECT TOP 10 * FROM OrderDetails";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
@@ -44,7 +44,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 	Console.WriteLine(orderDetails.Count());
 
-	FiddleHelper.WriteTable(orderDetails.Take(10));
+	FiddleHelper.WriteTable(orderDetails);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/X79bZI' %}
@@ -98,11 +98,10 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
-	
+
 	var orderDetail = connection.QuerySingleOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
 
-	Console.WriteLine(orderDetail.OrderDetailID);
+	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/WvbA02' %}
