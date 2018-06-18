@@ -11,11 +11,14 @@ string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
-
 	var affectedRows = connection.Execute(sql, new {CustomerName = "Mark"});
 
 	Console.WriteLine(affectedRows);
+	
+	// Only for see the Insert.
+	var customer = connection.Query<Customer>("Select * FROM CUSTOMERS WHERE CustomerName = 'Mark'").ToList();
+
+	FiddleHelper.WriteTable(customer);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/Z1iRIQ' %}  
@@ -27,19 +30,16 @@ Execute many times a SQL Command
 string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
+{			
 	var affectedRows = connection.Execute(sql,
- 		new[]
- 		{
-     		new {CustomerName = "John"},
-     		new {CustomerName = "Andy"},
-     		new {CustomerName = "Allan"}
- 		}
-	);
+	new[]
+	{
+	new {CustomerName = "John"},
+	new {CustomerName = "Andy"},
+	new {CustomerName = "Allan"}
+	}
+);
 
-	Console.WriteLine(affectedRows);
-}
+Console.WriteLine(affectedRows);
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/fvRKsY' %}  
