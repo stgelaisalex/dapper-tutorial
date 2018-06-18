@@ -20,7 +20,14 @@ string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
 	connection.Open();
+
 	var affectedRows = connection.ExecuteAsync(sql, new {CustomerName = "Mark"}).Result;
+
+	Console.WriteLine(affectedRows);
+
+	var customer = connection.Query("Select * FROM CUSTOMERS WHERE CustomerName = 'Mark'").FirstOrDefault();
+
+	FiddleHelper.WriteTable(customer);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/2rVSi0' %}
@@ -32,10 +39,12 @@ string sql = "SELECT * FROM OrderDetails";
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
 	connection.Open();
-	
+
 	var orderDetails = connection.QueryAsync(sql).Result.ToList();
 
 	Console.WriteLine(orderDetails.Count());
+
+	FiddleHelper.WriteTable(orderDetails.FirstOrDefault());
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/X79bZI' %}
@@ -47,10 +56,10 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
 	connection.Open();
-	
+
 	var orderDetail = connection.QueryFirstAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
 
-	Console.WriteLine(orderDetail);
+	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/7Jbdcg' %}
@@ -62,10 +71,10 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
 	connection.Open();
-	
+
 	var orderDetail = connection.QueryFirstOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
 
-	Console.WriteLine(orderDetail.Quantity);
+	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/26NWaz' %}
@@ -75,12 +84,10 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
-	var orderDetail = connection.QuerySingleAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
+{			
+	var orderDetail = connection.QuerySingleOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
 
-	Console.WriteLine(orderDetail.OrderDetailID);
+	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/pmjYFp' %}
