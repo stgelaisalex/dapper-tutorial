@@ -77,9 +77,9 @@ string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-var affectedRows = connection.Execute(sql, new {CustomerName = "Mark"});
+	var affectedRows = connection.Execute(sql, new {CustomerName = "Mark"});
 
-Console.WriteLine(affectedRows);
+	Console.WriteLine(affectedRows);
 
 	var customer = connection.Query<Customer>("Select * FROM CUSTOMERS WHERE CustomerName = 'Mark'").ToList();
 
@@ -126,7 +126,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {			
 	var affectedRows = connection.Execute(sql,new {CategoryID = 1, Description = "Soft drinks, coffees, teas, beers, mixed drinks, and ales"});
 
-Console.WriteLine(affectedRows);
+	Console.WriteLine(affectedRows);
 
 }
 ```
