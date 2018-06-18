@@ -16,19 +16,17 @@ These extension methods can be called from any object of type IDbConnection.
 Query method can execute a query and map the result to a dynamic list.
 
 ```csharp
-string sql = "SELECT * FROM OrderDetails";
+string sql = "SELECT TOP 10 * FROM OrderDetails";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
-	var orderDetails = connection.Query(sql).ToList();
+{			
+	var orderDetails = connection.QueryFirstOrDefault(sql);
 
-	Console.WriteLine(orderDetails.Count);
+	FiddleHelper.WriteTable(orderDetails);
 }
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/qTvEME' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/y925xR' %}
 
 ## Example - QueryFirst
 QueryFirst method can execute a query and map the first result to a dynamic list.
@@ -38,11 +36,9 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
-	
 	var orderDetail = connection.QueryFirst(sql, new {OrderDetailID = 1});
 
-	Console.WriteLine(orderDetail.Quantity);
+	FiddleHelper.WriteTable(orderDetail);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/eogWc1' %}
@@ -54,12 +50,10 @@ QueryFirstOrDefault method can execute a query and map the first result to a dyn
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
+{			
 	var orderDetail = connection.QueryFirstOrDefault(sql, new {OrderDetailID = 1});
 
-	Console.WriteLine(orderDetail.Quantity);
+	FiddleHelper.WriteTable(orderDetail);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/58YMxR' %}
@@ -71,12 +65,10 @@ QuerySingle method can execute a query and map the first result to a dynamic lis
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
+{	
 	var orderDetail = connection.QuerySingle(sql, new {OrderDetailID = 1});
 
-	Console.WriteLine(orderDetail);
+	FiddleHelper.WriteTable(orderDetail);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/uEq0HC' %}
@@ -89,11 +81,9 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
-	
 	var orderDetail = connection.QuerySingleOrDefault(sql, new {OrderDetailID = 1});
 
-	Console.WriteLine(orderDetail);
+	FiddleHelper.WriteTable(orderDetail);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/nYmbCo' %}
