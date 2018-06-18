@@ -25,7 +25,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 	Console.WriteLine(affectedRows);
 
-	var customer = connection.Query("Select * FROM CUSTOMERS WHERE CustomerName = 'Mark'").FirstOrDefault();
+	var customer = connection.Query<Customer>("Select * FROM CUSTOMERS WHERE CustomerName = 'Mark'").ToList();
 
 	FiddleHelper.WriteTable(customer);
 }
@@ -40,11 +40,11 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
 	connection.Open();
 
-	var orderDetails = connection.QueryAsync(sql).Result.ToList();
+	var orderDetails = connection.QueryAsync<OrderDetail>(sql).Result.ToList();
 
 	Console.WriteLine(orderDetails.Count());
 
-	FiddleHelper.WriteTable(orderDetails.FirstOrDefault());
+	FiddleHelper.WriteTable(orderDetails.Take(10));
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/X79bZI' %}
