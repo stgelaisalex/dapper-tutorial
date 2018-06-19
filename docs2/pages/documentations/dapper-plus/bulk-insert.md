@@ -25,11 +25,11 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 INSERT many entities with Bulk Operation.
 
 ```csharp
-DapperPlusManager.Entity<Customer>().Table("Customers"); 
+DapperPlusManager.Entity<Customer>().Table("Customers"); // If the Class have name Customers, the map is auto and you don't need this, Try it! :)
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.BulkInsert(list);
+	connection.BulkInsert(customers);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/0rXZS9' %}
@@ -39,11 +39,11 @@ INSERT entities with a one to one relation with Bulk Operation.
 
 ```csharp	
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
-DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);	
+DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {	
-	connection.BulkInsert(list).ThenForEach(x => x.Product.SupplierID = x.SupplierID).ThenBulkInsert(x => x.Product);
+	connection.BulkInsert(suppliers).ThenForEach(x => x.Product.SupplierID = x.SupplierID).ThenBulkInsert(x => x.Product);
 }	
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/9DMDMe' %}
@@ -52,12 +52,12 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 INSERT entities with a one to many relation with Bulk Operation.
 
 ```csharp	
-DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
-DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
+DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID); 
+DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID); 	
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {	
-	connection.BulkInsert(list).ThenForEach(x => x.ListProduct.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkInsert(x => x.ListProduct);
+	connection.BulkInsert(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkInsert(x => x.Products);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/9C5Yd2' %}
