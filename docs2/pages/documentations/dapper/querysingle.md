@@ -36,12 +36,10 @@ Execute a query and map the first result to a dynamic list, and throws an except
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
+{	
 	var orderDetail = connection.QuerySingle(sql, new {OrderDetailID = 1});
 
-	Console.WriteLine(orderDetail);
+	FiddleHelper.WriteTable(orderDetail);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/uEq0HC' %}
@@ -53,12 +51,10 @@ Execute a query and map the first result to a strongly typed list, and throws an
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
+{			
 	var orderDetail = connection.QuerySingle<OrderDetail>(sql, new {OrderDetailID = 1});
 
-	Console.WriteLine(orderDetail.OrderDetailID);
+	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/vnkv7q' %}

@@ -37,11 +37,10 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
-	
+
 	var orderDetail = connection.QueryFirst(sql, new {OrderDetailID = 1});
 
-	Console.WriteLine(orderDetail.Quantity);
+	FiddleHelper.WriteTable(orderDetail);
 }
 ```
 
@@ -55,11 +54,10 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
-	
-	var orderDetail = connection.QueryFirst<OrderDetail>(sql, new {OrderDetailID = 1});
 
-	Console.WriteLine(orderDetail.Quantity);
+	var orderDetail = connection.QueryFirst(sql, new {OrderDetailID = 1});
+
+	FiddleHelper.WriteTable(orderDetail);
 }
 ```
 

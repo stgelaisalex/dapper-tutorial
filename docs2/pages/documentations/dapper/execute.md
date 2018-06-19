@@ -29,8 +29,6 @@ string sql = "Invoice_Insert";
 
 using (var connection = My.ConnectionFactory())
 {
-    connection.Open();
-
     var affectedRows = connection.Execute(sql,
         new {Kind = InvoiceKind.WebInvoice, Code = "Single_Insert_1"},
         commandType: CommandType.StoredProcedure);
@@ -50,8 +48,6 @@ string sql = "Invoice_Insert";
 
 using (var connection = My.ConnectionFactory())
 {
-    connection.Open();
-
     var affectedRows = connection.Execute(sql,
         new[]
         {
@@ -77,8 +73,13 @@ string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
 	var affectedRows = connection.Execute(sql, new {CustomerName = "Mark"});
+
+	Console.WriteLine(affectedRows);
+
+	var customer = connection.Query<Customer>("Select * FROM CUSTOMERS WHERE CustomerName = 'Mark'").ToList();
+
+	FiddleHelper.WriteTable(customer);
 }
 ```
 
@@ -93,8 +94,6 @@ string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
-	
 	var affectedRows = connection.Execute(sql,
  		new[]
  		{
@@ -118,9 +117,7 @@ Execute the UPDATE Statement a single time.
 string sql = "UPDATE Categories SET Description = @Description WHERE CategoryID = @CategoryID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
+{			
 	var affectedRows = connection.Execute(sql,new {CategoryID = 1, Description = "Soft drinks, coffees, teas, beers, mixed drinks, and ales"});
 
 	Console.WriteLine(affectedRows);
@@ -137,20 +134,16 @@ Execute the UPDATE Statement multiple times. Once for every object in the array 
 string sql = "UPDATE Categories SET Description = @Description WHERE CategoryID = @CategoryID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
+{	
 	var affectedRows = connection.Execute(sql,
- 		new[]
- 		{
-     		new {CategoryID = 1, Description = "Soft drinks, coffees, teas, beers, mixed drinks, and ales"},
-     		new {CategoryID = 4, Description = "Cheeses and butters etc."}
- 		}
-	);
+	new[]
+	{
+	new {CategoryID = 1, Description = "Soft drinks, coffees, teas, beers, mixed drinks, and ales"},
+	new {CategoryID = 4, Description = "Cheeses and butters etc."}
+	}
+);
 
-	Console.WriteLine(affectedRows);
-	
-}
+Console.WriteLine(affectedRows);
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/qCdKI3' %}
@@ -165,9 +158,7 @@ Execute the DELETE Statement a single time.
 string sql = "DELETE FROM Customers WHERE CustomerID = @CustomerID";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
+{			
 	var affectedRows = connection.Execute(sql, new {CustomerID = 1});
 
 	Console.WriteLine(affectedRows);
@@ -184,19 +175,17 @@ Execute the DELETE Statement multiple times. Once for every object in the array 
 string sql = "DELETE FROM OrderDetails WHERE OrderDetailID = @OrderDetailID";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
+{			
 	var affectedRows = connection.Execute(sql, 
 		new[]
- 		{
-     		new {OrderDetailID = 1},
-     		new {OrderDetailID = 2},
-     		new {OrderDetailID = 3}
- 		}
-	);
+	{
+	new {OrderDetailID = 1},
+	new {OrderDetailID = 2},
+	new {OrderDetailID = 3}
+	}
+);
 
-	Console.WriteLine(affectedRows);
+Console.WriteLine(affectedRows);
 }
 ```
 
