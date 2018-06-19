@@ -12,7 +12,6 @@ INSERT entities using Bulk Operation.
 INSERT a single entity with Bulk Operation.
 
 ```csharp
-// If the Class have name Customers, the map is auto and you don't need this, Try it! :)
 DapperPlusManager.Entity<Customer>().Table("Customers"); 
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -26,7 +25,6 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 INSERT many entities with Bulk Operation.
 
 ```csharp
-// If the Class have name Customers, the map is auto and you don't need this, Try it! :)
 DapperPlusManager.Entity<Customer>().Table("Customers"); 
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
@@ -39,8 +37,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 ## Example - Insert with relation (One to One)
 INSERT entities with a one to one relation with Bulk Operation.
 
-```csharp
-// If the Class have name Suppliers, the map is auto and you don't need this, Try it! :)	
+```csharp	
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
 DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);	
 
@@ -54,8 +51,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 ## Example - Insert with relation (One to Many)
 INSERT entities with a one to many relation with Bulk Operation.
 
-```csharp
-// If the Class have name Suppliers, the map is auto and you don't need this, Try it! :)	
+```csharp	
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
 DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
 
