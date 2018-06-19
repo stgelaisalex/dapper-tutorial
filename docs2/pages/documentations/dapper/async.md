@@ -36,8 +36,6 @@ string sql = "SELECT TOP 10 * FROM OrderDetails";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
-
 	var orderDetails = connection.QueryAsync<OrderDetail>(sql).Result.ToList();
 
 	Console.WriteLine(orderDetails.Count());
@@ -53,8 +51,6 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
-
 	var orderDetail = connection.QueryFirstAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
 
 	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
@@ -68,8 +64,6 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
-
 	var orderDetail = connection.QueryFirstOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
 
 	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
@@ -96,7 +90,6 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-
 	var orderDetail = connection.QuerySingleOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
 
 	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
