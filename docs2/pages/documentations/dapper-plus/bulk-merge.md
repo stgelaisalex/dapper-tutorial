@@ -32,7 +32,7 @@ using (var connection = My.ConnectionFactory())
     connection.BulkMerge(invoices);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/9Ve5fq' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/T3R43T' %}
 
 ## Example - Merge with relation (One to One)
 MERGE entities with a one to one relation with Bulk Operation.
