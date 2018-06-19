@@ -52,12 +52,12 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 DELETE entities with a one to many relation with Bulk Operation.
 
 ```csharp
-using (var connection = My.ConnectionFactory())
-{
-    connection.Open();
+DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
+DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
 
-	connection.BulkDelete(invoices.SelectMany(x => x.Items))
-		.BulkDelete(invoices);
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+{
+	connection.BulkDelete(suppliers.SelectMany(x => x.Products)).BulkDelete(suppliers);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/9qGgQv' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/SEGvy9' %}
