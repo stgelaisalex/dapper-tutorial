@@ -44,7 +44,6 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 	Console.WriteLine(orderDetail.Quantity);
 }
 ```
-
 {% include component-try-it.html href='https://dotnetfiddle.net/58YMxR' %}
 
 ## Example - Query Strongly Typed
@@ -56,11 +55,10 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
 	connection.Open();
-	
+
 	var orderDetail = connection.QueryFirstOrDefault<OrderDetail>(sql, new {OrderDetailID = 1});
 
-	Console.WriteLine(orderDetail.Quantity);
+	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
 }
 ```
-
 {% include component-try-it.html href='https://dotnetfiddle.net/2WQ7sc' %}
