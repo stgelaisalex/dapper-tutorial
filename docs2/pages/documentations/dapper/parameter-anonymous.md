@@ -38,8 +38,8 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 	new {CustomerName = "Andy"},
 	new {CustomerName = "Allan"}
 	}
-);
-
-Console.WriteLine(affectedRows);
+	
+	Console.WriteLine(affectedRows);
+)
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/fvRKsY' %}  
