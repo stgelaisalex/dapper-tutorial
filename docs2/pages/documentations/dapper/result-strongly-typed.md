@@ -17,15 +17,15 @@ These extension methods can be called from any object of type IDbConnection.
 Query method can execute a query and map the result to a strongly typed list.
 
 ```csharp
-string sql = "SELECT * FROM OrderDetails";
+string sql = "SELECT TOP 10 * FROM OrderDetails";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
+{			
 	var orderDetails = connection.Query<OrderDetail>(sql).ToList();
 
 	Console.WriteLine(orderDetails.Count);
+
+	FiddleHelper.WriteTable(orderDetails);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/dXZc0s' %}
@@ -37,12 +37,10 @@ QueryFirst method can execute a query and map the first result to a strongly typ
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
+{			
 	var orderDetail = connection.QueryFirst<OrderDetail>(sql, new {OrderDetailID = 1});
 
-	Console.WriteLine(orderDetail.Quantity);
+	FiddleHelper.WriteTable( new List<OrderDetail>() { orderDetail });
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/AV0OgZ' %}
@@ -55,11 +53,9 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
-	
 	var orderDetail = connection.QueryFirstOrDefault<OrderDetail>(sql, new {OrderDetailID = 1});
 
-	Console.WriteLine(orderDetail.Quantity);
+	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
 }
 ```
 
@@ -72,12 +68,10 @@ QuerySingle method can execute a query and map the first result to a strongly ty
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
+{			
 	var orderDetail = connection.QuerySingle<OrderDetail>(sql, new {OrderDetailID = 1});
 
-	Console.WriteLine(orderDetail.OrderDetailID);
+	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/vnkv7q' %}
@@ -89,12 +83,10 @@ QuerySingleOrDefault method can execute a query and map the first result to a st
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	connection.Open();
-	
+{			
 	var orderDetail = connection.QuerySingleOrDefault<OrderDetail>(sql, new {OrderDetailID = 1});
 
-	Console.WriteLine(orderDetail.OrderDetailID);
+	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/kFMKnL' %}

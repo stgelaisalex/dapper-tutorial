@@ -82,7 +82,6 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 	FiddleHelper.WriteTable(customer);
 }
 ```
-
 {% include component-try-it.html href='https://dotnetfiddle.net/P2uw27' %}
 
 ### Many
@@ -94,17 +93,19 @@ string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	var affectedRows = connection.Execute(sql,
- 		new[]
- 		{
-     		new {CustomerName = "John"},
-     		new {CustomerName = "Andy"},
-     		new {CustomerName = "Allan"}
- 		}
-	);	
-}
-```
+	connection.Open();
 
+	var affectedRows = connection.Execute(sql,
+	new[]
+	{
+	new {CustomerName = "John"},
+	new {CustomerName = "Andy"},
+	new {CustomerName = "Allan"}
+	}
+);
+
+Console.WriteLine(affectedRows);
+```
 {% include component-try-it.html href='https://dotnetfiddle.net/vHOVx6' %}
 
 ## Example - Execute UPDATE
@@ -123,7 +124,6 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 	Console.WriteLine(affectedRows);
 }
 ```
-
 {% include component-try-it.html href='https://dotnetfiddle.net/CWdH6z' %}
 
 ### Many
@@ -145,7 +145,6 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 
 Console.WriteLine(affectedRows);
 ```
-
 {% include component-try-it.html href='https://dotnetfiddle.net/qCdKI3' %}
 
 ## Example - Execute DELETE
@@ -186,7 +185,6 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 );
 
 Console.WriteLine(affectedRows);
-}
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/nxP1vL' %}

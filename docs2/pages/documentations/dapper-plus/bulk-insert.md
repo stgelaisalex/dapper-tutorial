@@ -12,50 +12,52 @@ INSERT entities using Bulk Operation.
 INSERT a single entity with Bulk Operation.
 
 ```csharp
-using (var connection = My.ConnectionFactory())
+DapperPlusManager.Entity<Customer>().Table("Customers"); 
+
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.Open();
-    
-    connection.BulkInsert(invoice);
-}
+	connection.BulkInsert(new List<Customer>() { new Customer() { CustomerName = "ExampleBulkInsert", ContactName = "Example Name :" +  1}});
+}		
 ```
+{% include component-try-it.html href='https://dotnetfiddle.net/d8Jxij' %}
 
 ## Example - Insert Many
 INSERT many entities with Bulk Operation.
 
 ```csharp
-using (var connection = My.ConnectionFactory())
-{
-    connection.Open();
+DapperPlusManager.Entity<Customer>().Table("Customers"); // If the Class have name Customers, the map is auto and you don't need this, Try it! :)
 
-    connection.BulkInsert(invoices);
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+{
+	connection.BulkInsert(customers);
 }
 ```
+{% include component-try-it.html href='https://dotnetfiddle.net/0rXZS9' %}
 
 ## Example - Insert with relation (One to One)
 INSERT entities with a one to one relation with Bulk Operation.
 
-```csharp
-using (var connection = My.ConnectionFactory())
-{
-    connection.Open();
+```csharp	
+DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
+DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
 
-	connection.BulkInsert(invoices)
-		.ThenForEach(x => x.Detail.InvoiceID = x.InvoiceID)
-		.ThenBulkInsert(x => x.Detail);
-}
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+{	
+	connection.BulkInsert(suppliers).ThenForEach(x => x.Product.SupplierID = x.SupplierID).ThenBulkInsert(x => x.Product);
+}	
 ```
+{% include component-try-it.html href='https://dotnetfiddle.net/9DMDMe' %}
 
 ## Example - Insert with relation (One to Many)
 INSERT entities with a one to many relation with Bulk Operation.
 
-```csharp
-using (var connection = My.ConnectionFactory())
-{
-    connection.Open();
+```csharp	
+DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID); 
+DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID); 	
 
-	connection.BulkInsert(invoices)
-		.ThenForEach(x => x.Items.ForEach(y => y.InvoiceID = x.InvoiceID))
-		.ThenBulkInsert(x => x.Items);
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+{	
+	connection.BulkInsert(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkInsert(x => x.Products);
 }
 ```
+{% include component-try-it.html href='https://dotnetfiddle.net/9C5Yd2' %}

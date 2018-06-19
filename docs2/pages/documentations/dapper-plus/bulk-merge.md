@@ -12,13 +12,14 @@ MERGE entities using Bulk Operation.
 MERGE a single entity with Bulk Operation.
 
 ```csharp
-using (var connection = My.ConnectionFactory())
-{
-    connection.Open();
+DapperPlusManager.Entity<Customer>().Table("Customers"); 
 
-    connection.BulkMerge(invoice);
-}
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+{
+	connection.BulkMerge(new List<Customer>() { new Customer() { CustomerName = "ExampleBulkInsert", ContactName = "Example Name :" +  1}});
+}		
 ```
+{% include component-try-it.html href='https://dotnetfiddle.net/T3R43T' %}
 
 ## Example - Merge Many
 MERGE many entities with Bulk Operation.
@@ -31,6 +32,7 @@ using (var connection = My.ConnectionFactory())
     connection.BulkMerge(invoices);
 }
 ```
+{% include component-try-it.html href='https://dotnetfiddle.net/T3R43T' %}
 
 ## Example - Merge with relation (One to One)
 MERGE entities with a one to one relation with Bulk Operation.
