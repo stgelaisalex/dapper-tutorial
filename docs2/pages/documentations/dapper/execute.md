@@ -29,8 +29,6 @@ string sql = "Invoice_Insert";
 
 using (var connection = My.ConnectionFactory())
 {
-    connection.Open();
-
     var affectedRows = connection.Execute(sql,
         new {Kind = InvoiceKind.WebInvoice, Code = "Single_Insert_1"},
         commandType: CommandType.StoredProcedure);
@@ -50,8 +48,6 @@ string sql = "Invoice_Insert";
 
 using (var connection = My.ConnectionFactory())
 {
-    connection.Open();
-
     var affectedRows = connection.Execute(sql,
         new[]
         {
@@ -98,8 +94,6 @@ string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
-	
 	var affectedRows = connection.Execute(sql,
  		new[]
  		{
@@ -127,7 +121,6 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 	var affectedRows = connection.Execute(sql,new {CategoryID = 1, Description = "Soft drinks, coffees, teas, beers, mixed drinks, and ales"});
 
 	Console.WriteLine(affectedRows);
-
 }
 ```
 
