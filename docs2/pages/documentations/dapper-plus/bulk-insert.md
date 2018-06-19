@@ -42,12 +42,8 @@ DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.Supplier
 DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);; // If the Class have name Products, the map is auto and you don't need this, Try it! :)	
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	Console.WriteLine("ID of the new Supplier : " + list.First().SupplierID);
-
+{	
 	connection.BulkInsert(list).ThenForEach(x => x.Product.SupplierID = x.SupplierID).ThenBulkInsert(x => x.Product);
-
-	Console.WriteLine("ID of the new Supplier : " + list.First().SupplierID);
 }	
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/9DMDMe' %}
@@ -60,12 +56,8 @@ DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.Supplier
 DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);; // If the Class have name Products, the map is auto and you don't need this, Try it! :)	
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
-{
-	Console.WriteLine("ID of the new Supplier : " + list.First().SupplierID);
-
+{	
 	connection.BulkInsert(list).ThenForEach(x => x.ListProduct.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkInsert(x => x.ListProduct);
-
-	Console.WriteLine("ID of the new Supplier : " + list.First().SupplierID);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/9C5Yd2' %}
