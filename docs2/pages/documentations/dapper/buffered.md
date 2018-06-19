@@ -13,8 +13,6 @@ string sql = "SELECT * FROM OrderDetails;";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
-
 	var orderDetails = connection.Query<OrderDetail>(sql, buffered: false).ToList();
 
 	FiddleHelper.WriteTable(orderDetails.Take(10));
