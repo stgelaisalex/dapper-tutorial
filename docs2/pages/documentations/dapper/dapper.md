@@ -37,7 +37,6 @@ string sqlOrderDetails = "SELECT TOP 5 * FROM OrderDetails;";
 string sqlOrderDetail = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 string sqlCustomerInsert = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
-
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
 	var orderDetails = connection.Query<OrderDetail>(sqlOrderDetails).ToList();
@@ -132,12 +131,12 @@ connection.Query<Invoice>(sql, buffered: false)
 // Transaction
 using (var transaction = connection.BeginTransaction())
 {
-var affectedRows = connection.Execute(sql,
-new {Kind = InvoiceKind.WebInvoice, Code = "Single_Insert_1"},
-commandType: CommandType.StoredProcedure,
-transaction: transaction);
+	var affectedRows = connection.Execute(sql,
+	new {Kind = InvoiceKind.WebInvoice, Code = "Single_Insert_1"},
+	commandType: CommandType.StoredProcedure,
+	transaction: transaction);
 
-transaction.Commit();
+	transaction.Commit();
 }
 
 // Stored Procedure
