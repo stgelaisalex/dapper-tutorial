@@ -19,8 +19,6 @@ string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.Open();
-
 	var affectedRows = connection.ExecuteAsync(sql, new {CustomerName = "Mark"}).Result;
 
 	Console.WriteLine(affectedRows);
