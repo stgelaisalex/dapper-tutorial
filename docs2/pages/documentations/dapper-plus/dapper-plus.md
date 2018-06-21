@@ -33,25 +33,36 @@ Dapper Plus extend your IDbConnection interface with multiple methods:
 
 - [Bulk Insert](/bulk-insert)
 - [Bulk Update](/bulk-update)
-- [Bulk Delete](/bulk-delete)
 - [Bulk Merge](/bulk-merge)
+- [Bulk Delete](/bulk-delete)
 
 ```csharp
-// Bulk Insert
-connection.BulkInsert(invoices)
-	.ThenForEach(x => x.Items.ForEach(y => y.InvoiceID = x.InvoiceID))
-	.ThenBulkInsert(x => x.Items);
-  
-// Bulk Update
-connection.BulkUpdate(invoices, x => x.Items);
+// STEP MAPPING
+DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
+DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
 
-// Bulk Delete
-connection.BulkDelete(invoices.SelectMany(x => x.Items))
-	.BulkDelete(invoices);
+// STEP BULKINSERT
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+{
+	connection.BulkInsert(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkInsert(x => x.Products);
+}
 
-// Bulk Merge
-connection.BulkMerge(invoices)
-	.ThenForEach(x => x.Items.ForEach(y => y.InvoiceID = x.InvoiceID))
-	.ThenBulkMerge(x => x.Items);
-  
+// STEP BULKUPDATE
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+{
+	connection.BulkUpdate(suppliers, x => x.Products);
+}
+
+// STEP BULKMERGE
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+{
+	connection.BulkMerge(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkMerge(x => x.Products);
+}
+
+// STEP BULKDELETE
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+{
+	connection.BulkDelete(suppliers.SelectMany(x => x.Products)).BulkDelete(suppliers);
+}
 ```
+{% include component-try-it.html href='https://dotnetfiddle.net/dbMVfr' %}
