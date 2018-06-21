@@ -16,7 +16,7 @@ DapperPlusManager.Entity<Customer>().Table("Customers");
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-	connection.BulkMerge(new List<Customer>() { new Customer() { CustomerName = "ExampleBulkInsert", ContactName = "Example Name :" +  1}});
+	connection.BulkMerge(new List<Customer>() { new Customer() { CustomerName = "ExampleBulkMerge", ContactName = "Example Name :" +  1}});
 }		
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/U6g6Gd' %}
