@@ -43,7 +43,7 @@ DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID)
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {	
-    connection.BulkUpdate(suppliers).ThenForEach(x => x.Product.SupplierID = x.SupplierID).ThenBulkUpdate(x => x.Product);
+    connection.BulkUpdate(suppliers, x => x.Product);
 }		
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/ueWXDF' %}
@@ -57,7 +57,7 @@ DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID)
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
-    connection.BulkUpdate(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkUpdate(x => x.Products);
+    connection.BulkUpdate(suppliers, x => x.Products);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/2coF4V' %}
