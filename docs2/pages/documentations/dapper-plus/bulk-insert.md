@@ -25,7 +25,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 INSERT many entities with Bulk Operation.
 
 ```csharp
-DapperPlusManager.Entity<Customer>().Table("Customers"); // If the Class have name Customers, the map is auto and you don't need this, Try it! :)
+DapperPlusManager.Entity<Customer>().Table("Customers"); 
 
 using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 {
