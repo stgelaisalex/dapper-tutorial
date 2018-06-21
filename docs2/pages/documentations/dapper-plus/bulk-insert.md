@@ -60,4 +60,4 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 	connection.BulkInsert(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkInsert(x => x.Products);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/9C5Yd2' %}
+{% include component-try-it.html href=https://dotnetfiddle.net/rzZDRy' %}
