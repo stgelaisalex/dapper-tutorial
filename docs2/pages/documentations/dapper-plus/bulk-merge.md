@@ -19,7 +19,7 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 	connection.BulkMerge(new List<Customer>() { new Customer() { CustomerName = "ExampleBulkInsert", ContactName = "Example Name :" +  1}});
 }		
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/T3R43T' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/U6g6Gd' %}
 
 ## Example - Merge Many
 MERGE many entities with Bulk Operation.
