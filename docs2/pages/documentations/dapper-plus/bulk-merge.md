@@ -25,11 +25,11 @@ using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
 MERGE many entities with Bulk Operation.
 
 ```csharp
-using (var connection = My.ConnectionFactory())
-{
-    connection.Open();
+DapperPlusManager.Entity<Customer>().Table("Customers"); 
 
-    connection.BulkMerge(invoices);
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+{
+	connection.BulkMerge(customers);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/T3R43T' %}
@@ -38,26 +38,26 @@ using (var connection = My.ConnectionFactory())
 MERGE entities with a one to one relation with Bulk Operation.
 
 ```csharp
-using (var connection = My.ConnectionFactory())
-{
-    connection.Open();
+DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
+DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
 
-	connection.BulkMerge(invoices)
-		.ThenForEach(x => x.Detail.InvoiceID = x.InvoiceID)
-		.ThenBulkMerge(x => x.Detail);
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+{	
+	connection.BulkMerge(suppliers).ThenForEach(x => x.Product.SupplierID = x.SupplierID).ThenBulkMerge(x => x.Product);
 }
 ```
+{% include component-try-it.html href='https://dotnetfiddle.net/CJfb4l' %}
 
 ## Example - Merge with relation (One to Many)
 MERGE entities with a one to many relation with Bulk Operation.
 
 ```csharp
-using (var connection = My.ConnectionFactory())
-{
-    connection.Open();
+DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
+DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
 
-	connection.BulkMerge(invoices)
-		.ThenForEach(x => x.Items.ForEach(y => y.InvoiceID = x.InvoiceID))
-		.ThenBulkMerge(x => x.Items);
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+{
+	connection.BulkMerge(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkMerge(x => x.Products);
 }
 ```
+{% include component-try-it.html href='https://dotnetfiddle.net/9C5Yd2' %}
