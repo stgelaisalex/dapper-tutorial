@@ -41,29 +41,41 @@ Once you installed this library then the following extension methods will automa
 
 - BulkInsert
 - BulkUpdate
-- BulkDelete
 - BulkMerge
+- BulkDelete
 
 There is no configuration required and no need for extra coding. You can easily use these extension methods in your code.
 
 ```csharp
-// Bulk Insert
-connection.BulkInsert(invoices)
-	.ThenForEach(x => x.Items.ForEach(y => y.InvoiceID = x.InvoiceID))
-	.ThenBulkInsert(x => x.Items);
+// STEP MAPPING
+DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
+DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
 
-// Bulk Update
-connection.BulkUpdate(invoices, x => x.Items);
+// STEP BULKINSERT
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+{
+	connection.BulkInsert(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkInsert(x => x.Products);
+}
 
-// Bulk Delete
-connection.BulkDelete(invoices.SelectMany(x => x.Items))
-	.BulkDelete(invoices);
+// STEP BULKUPDATE
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+{
+	connection.BulkUpdate(suppliers, x => x.Products);
+}
 
-// Bulk Merge
-connection.BulkMerge(invoices)
-	.ThenForEach(x => x.Items.ForEach(y => y.InvoiceID = x.InvoiceID))
-	.ThenBulkMerge(x => x.Items);
+// STEP BULKMERGE
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+{
+	connection.BulkMerge(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkMerge(x => x.Products);
+}
+
+// STEP BULKDELETE
+using (var connection = new SqlCeConnection("Data Source=SqlCe_W3Schools.sdf"))
+{
+	connection.BulkDelete(suppliers.SelectMany(x => x.Products)).BulkDelete(suppliers);
+}
 ```
+{% include component-try-it.html href='https://dotnetfiddle.net/NcILLg' %}
 
 You can find the detailed documentation here: <a href="http://dapper-plus.net/overview" target="_blank">http://dapper-plus.net/overview</a>
 
