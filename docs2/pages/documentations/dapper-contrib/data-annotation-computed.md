@@ -1,4 +1,4 @@
-# Dapper Contrib - Data Annotation - Computed
+# Data Annotation - Computed
 
 ## Description
 Specifie the property should be excluded from update.
