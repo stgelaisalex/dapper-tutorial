@@ -1,4 +1,4 @@
-# Data Annotation - Computed
+# Computed
 
 ## Description
 Specifie the property should be excluded from update.
