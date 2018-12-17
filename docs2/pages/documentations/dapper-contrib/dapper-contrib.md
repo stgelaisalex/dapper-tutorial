@@ -1,6 +1,4 @@
-# Dapper Contrib
-
-## What's Dapper Contrib?
+# What's Dapper Contrib?
 Dapper Contrib extend the IDbConnection interface with additional CRUD methods.
 
 ## Installation
